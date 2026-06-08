@@ -94,14 +94,34 @@ img {
 }
 
 .nav a {
-  font-size: 15px;
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--text-dim);
+  padding: 6px 0;
   transition: color 0.25s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--text);
+  transition: right 0.25s ease;
 }
 
 .nav a:hover,
 .nav a.active {
   color: var(--text);
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  right: 0;
 }
 
 .nav-actions {
