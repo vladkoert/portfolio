@@ -456,7 +456,11 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: start;
+  align-items: center;
+}
+
+.about-grid h2 {
+  margin-bottom: 22px;
 }
 
 .about-grid p + p {
