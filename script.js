@@ -146,6 +146,39 @@
     });
   }
 
+  // Project page carousel
+  var carousel = document.querySelector(".project-carousel");
+  if (carousel) {
+    var slides = carousel.querySelectorAll(".carousel-slide");
+    var dotsContainer = carousel.querySelector(".carousel-dots");
+    var current = 0;
+
+    // Build dots
+    slides.forEach(function (_, i) {
+      var dot = document.createElement("button");
+      dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+      dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+      dot.addEventListener("click", function () { goTo(i); });
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+      slides[current].classList.remove("active");
+      dotsContainer.querySelectorAll(".carousel-dot")[current].classList.remove("active");
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add("active");
+      dotsContainer.querySelectorAll(".carousel-dot")[current].classList.add("active");
+    }
+
+    var prevBtn = carousel.querySelector(".carousel-btn.prev");
+    var nextBtn = carousel.querySelector(".carousel-btn.next");
+    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(current + 1); });
+
+    // Auto-advance every 4s
+    setInterval(function () { goTo(current + 1); }, 4000);
+  }
+
   // Lightbox for project gallery
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lightbox-img");
@@ -161,7 +194,7 @@
       document.body.style.overflow = "";
       lbImg.src = "";
     }
-    document.querySelectorAll(".project-gallery img").forEach(function (img) {
+    document.querySelectorAll(".masonry-col img, .project-gallery img").forEach(function (img) {
       img.addEventListener("click", function () { lbOpen(img.src, img.alt); });
     });
     lb.addEventListener("click", function (e) { if (e.target === lb) lbClose(); });

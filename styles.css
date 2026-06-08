@@ -459,6 +459,15 @@ img {
   margin-top: 4px;
 }
 
+/* Featured card — spans 2 columns */
+.work-card.featured {
+  grid-column: span 2;
+}
+
+.work-card.featured .work-img {
+  aspect-ratio: 16 / 9;
+}
+
 /* Real image in work card */
 .work-card {
   position: relative;
@@ -573,6 +582,197 @@ img {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+/* ---------- Project split layout (Hanssen-style) ---------- */
+
+.project-split {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  min-height: calc(100vh - 72px);
+}
+
+.project-split-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.project-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: block;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  position: relative;
+  height: calc(100vh - 72px);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.75);
+}
+
+.carousel-btn.prev { left: 18px; }
+.carousel-btn.next { right: 18px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.carousel-dot.active {
+  background: #fff;
+}
+
+.project-split-info {
+  padding: 52px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+.project-split-info h1 {
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-top: 8px;
+}
+
+.project-desc {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.project-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.meta-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ---------- Masonry gallery ---------- */
+
+.project-masonry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.masonry-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.masonry-col img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+  cursor: zoom-in;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.masonry-col img:hover {
+  transform: scale(1.015);
+  opacity: 0.9;
+}
+
+/* Responsive: project split stacks on tablet */
+@media (max-width: 900px) {
+  .project-split {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-slide.active {
+    height: 60vw;
+    min-height: 320px;
+  }
+
+  .project-split-info {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding: 36px 24px;
+  }
+
+  .project-masonry {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Lightbox */

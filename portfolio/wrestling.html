@@ -39,47 +39,51 @@
   </header>
 
   <main>
-    <section class="page-intro">
-      <div class="wrap">
+
+    <!-- Hero split: image left, info right -->
+    <section class="project-split">
+      <div class="project-split-img">
+        <div class="project-carousel">
+          <img class="carousel-slide active" src="/images/Photography/Wrestling/web/wrestling-01.jpg" alt="Wrestling — 1" />
+          <img class="carousel-slide" src="/images/Photography/Wrestling/web/wrestling-02.jpg" alt="Wrestling — 2" />
+          <img class="carousel-slide" src="/images/Photography/Wrestling/web/wrestling-03.jpg" alt="Wrestling — 3" />
+          <button class="carousel-btn prev" aria-label="Previous">&#8592;</button>
+          <button class="carousel-btn next" aria-label="Next">&#8594;</button>
+          <div class="carousel-dots"></div>
+        </div>
+      </div>
+      <div class="project-split-info">
         <a class="back-link" href="/portfolio">← All projects</a>
-        <div class="project-header">
-          <div>
-            <p class="eyebrow">Photography · 2015</p>
-            <h1>Wrestling</h1>
-            <p>Shot ringside at a professional wrestling event — fast action, dramatic light and raw energy captured up close.</p>
-          </div>
-          <div class="project-tags">
-            <span class="tag">Photo</span>
-            <span class="tag">Sport</span>
-            <span class="tag">Event</span>
-          </div>
+        <h1>Wrestling</h1>
+        <p class="project-desc">Shot ringside at a professional wrestling event — fast action, dramatic light and raw energy captured up close.</p>
+        <div class="project-meta-grid">
+          <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2015</span></div>
+          <div class="meta-item"><span class="meta-label">Genre</span><span class="meta-value">Sport & Event</span></div>
+          <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Documentary</span></div>
+          <div class="meta-item"><span class="meta-label">Format</span><span class="meta-value">JPEG</span></div>
         </div>
+        <a class="btn btn-solid" href="/contact">Work with me →</a>
       </div>
     </section>
 
-    <section class="section" style="padding-top: 0;">
-      <div class="wrap">
-        <div class="project-cover">
-          <img src="/images/Photography/Wrestling/web/wrestling-01.jpg" alt="Wrestling event — ringside action" loading="eager" />
-        </div>
-      </div>
-    </section>
-
+    <!-- Full photo gallery -->
     <section class="section">
       <div class="wrap">
-        <div class="project-gallery">
-          <img src="/images/Photography/Wrestling/web/wrestling-02.jpg" alt="Wrestling — moment 2" loading="lazy" />
-          <img src="/images/Photography/Wrestling/web/wrestling-03.jpg" alt="Wrestling — moment 3" loading="lazy" />
-          <img src="/images/Photography/Wrestling/web/wrestling-04.jpg" alt="Wrestling — moment 4" loading="lazy" />
-          <img src="/images/Photography/Wrestling/web/wrestling-05.jpg" alt="Wrestling — moment 5" loading="lazy" />
-          <img src="/images/Photography/Wrestling/web/wrestling-06.jpg" alt="Wrestling — moment 6" loading="lazy" />
-          <img src="/images/Photography/Wrestling/web/wrestling-07.jpg" alt="Wrestling — moment 7" loading="lazy" />
-          <img src="/images/Photography/Wrestling/web/wrestling-08.jpg" alt="Wrestling — moment 8" loading="lazy" />
+        <div class="project-masonry">
+          <div class="masonry-col">
+            <img src="/images/Photography/Wrestling/web/wrestling-04.jpg" alt="Wrestling — 4" loading="lazy" />
+            <img src="/images/Photography/Wrestling/web/wrestling-06.jpg" alt="Wrestling — 6" loading="lazy" />
+            <img src="/images/Photography/Wrestling/web/wrestling-08.jpg" alt="Wrestling — 8" loading="lazy" />
+          </div>
+          <div class="masonry-col">
+            <img src="/images/Photography/Wrestling/web/wrestling-05.jpg" alt="Wrestling — 5" loading="lazy" />
+            <img src="/images/Photography/Wrestling/web/wrestling-07.jpg" alt="Wrestling — 7" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="padding-top:0;">
       <div class="wrap">
         <div class="project-nav">
           <a class="btn btn-outline" href="/portfolio">← Back to portfolio</a>
@@ -87,6 +91,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Lightbox -->
