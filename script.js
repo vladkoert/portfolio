@@ -57,15 +57,15 @@
     });
   });
 
-  // Contact form (static demo — no backend) with lightweight bot deterrents:
+  // Contact form — submits to Web3Forms, with lightweight bot deterrents:
   // honeypot field, minimum-time check, and a simple math challenge.
   var form = document.querySelector(".contact-form");
   if (form) {
     var loadedAt = Date.now();
     var captchaQuestion = form.querySelector(".captcha-question");
     var captchaInput = form.querySelector("#captcha");
-    var a = 1 + Math.floor(Math.random() * 8);
-    var b = 1 + Math.floor(Math.random() * 8);
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var a, b;
 
     function newChallenge() {
       a = 1 + Math.floor(Math.random() * 8);
@@ -85,7 +85,7 @@
       var elapsed = Date.now() - loadedAt;
       var answer = captchaInput ? parseInt(captchaInput.value, 10) : NaN;
 
-      // Silently drop likely-bot submissions (filled honeypot or too fast)
+      // Silently "succeed" on likely-bot submissions without ever sending them
       if ((honeypot && honeypot.value) || elapsed < 1500) {
         note.textContent = "Thanks — your message has been noted. I'll get back to you shortly.";
         note.classList.remove("is-error");
@@ -103,11 +103,39 @@
         return;
       }
 
-      note.textContent = "Thanks — your message has been noted. I'll get back to you shortly.";
+      var formData = new FormData(form);
+      formData.delete("company");
+      formData.delete("captcha");
+
+      if (submitBtn) submitBtn.disabled = true;
+      note.textContent = "Sending…";
       note.classList.remove("is-error");
-      form.reset();
-      loadedAt = Date.now();
-      newChallenge();
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            note.textContent = "Thanks — your message has been sent. I'll get back to you shortly.";
+            note.classList.remove("is-error");
+            form.reset();
+            loadedAt = Date.now();
+            newChallenge();
+          } else {
+            note.textContent = "Something went wrong sending your message — please email me directly instead.";
+            note.classList.add("is-error");
+          }
+        })
+        .catch(function () {
+          note.textContent = "Something went wrong sending your message — please email me directly instead.";
+          note.classList.add("is-error");
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
   }
 })();
