@@ -28,43 +28,66 @@
 
   syncToggle();
 
-  // Mobile nav toggle
+  // Mobile nav
   var menuBtn = document.querySelector(".menu-btn");
   var nav = document.querySelector(".nav");
   if (menuBtn && nav) {
-    menuBtn.addEventListener("click", function () {
-      nav.classList.toggle("is-open");
-    });
+    menuBtn.addEventListener("click", function () { nav.classList.toggle("is-open"); });
     nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        nav.classList.remove("is-open");
-      });
+      link.addEventListener("click", function () { nav.classList.remove("is-open"); });
     });
   }
 
-  // Portfolio filters
-  var filterBtns = document.querySelectorAll(".filter-btn");
-  var cards = document.querySelectorAll("[data-category]");
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      filterBtns.forEach(function (b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      var filter = btn.getAttribute("data-filter");
-      cards.forEach(function (card) {
-        if (filter === "all" || card.getAttribute("data-category") === filter) {
-          card.removeAttribute("hidden");
-        } else {
-          card.setAttribute("hidden", "");
-        }
+  // Generic carousel init — works for both .pf-carousel and .project-carousel
+  function initCarousel(container, slideClass, dotClass, prevClass, nextClass, autoMs) {
+    if (!container) return;
+    var slides = container.querySelectorAll("." + slideClass);
+    var dotsEl = container.querySelector("." + dotClass);
+    var current = 0;
+    if (!slides.length) return;
+
+    if (dotsEl) {
+      slides.forEach(function (_, i) {
+        var dot = document.createElement("button");
+        dot.className = dotClass.replace("s", "") + (i === 0 ? " active" : "");
+        dot.setAttribute("aria-label", "Slide " + (i + 1));
+        dot.addEventListener("click", function () { go(i); });
+        dotsEl.appendChild(dot);
       });
-    });
-  });
+    }
+
+    function go(idx) {
+      slides[current].classList.remove("active");
+      if (dotsEl) dotsEl.querySelectorAll("button")[current] && dotsEl.querySelectorAll("button")[current].classList.remove("active");
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add("active");
+      if (dotsEl) dotsEl.querySelectorAll("button")[current] && dotsEl.querySelectorAll("button")[current].classList.add("active");
+    }
+
+    var prev = container.querySelector("." + prevClass);
+    var next = container.querySelector("." + nextClass);
+    if (prev) prev.addEventListener("click", function () { go(current - 1); });
+    if (next) next.addEventListener("click", function () { go(current + 1); });
+
+    if (autoMs) setInterval(function () { go(current + 1); }, autoMs);
+  }
+
+  // Portfolio page featured carousel
+  initCarousel(
+    document.getElementById("pfCarousel"),
+    "pf-slide", "pf-dots", "pf-prev", "pf-next", 4000
+  );
+
+  // Project detail carousel (if present)
+  initCarousel(
+    document.querySelector(".project-carousel"),
+    "carousel-slide", "carousel-dots", "prev", "next", 4000
+  );
 
   // Contact form
   var form = document.querySelector(".contact-form");
   if (form) {
     var loadedAt = Date.now();
-
     var a = Math.floor(Math.random() * 9) + 1;
     var b = Math.floor(Math.random() * 9) + 1;
     var answer = a + b;
@@ -78,7 +101,6 @@
       var inp = document.getElementById("captcha");
       if (inp) inp.value = "";
     }
-
     newChallenge();
 
     var submitBtn = form.querySelector('[type="submit"]');
@@ -86,38 +108,23 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-
       var honey = form.querySelector('[name="company"]');
       if (honey && honey.value.trim() !== "") return;
-
       if (Date.now() - loadedAt < 1500) {
-        if (note) {
-          note.textContent = "Please wait a moment before submitting.";
-          note.classList.add("is-error");
-        }
+        if (note) { note.textContent = "Please wait a moment before submitting."; note.classList.add("is-error"); }
         return;
       }
-
       var captchaInput = document.getElementById("captcha");
       if (!captchaInput || parseInt(captchaInput.value, 10) !== answer) {
-        if (note) {
-          note.textContent = "Incorrect answer — please try again.";
-          note.classList.add("is-error");
-        }
+        if (note) { note.textContent = "Incorrect answer — please try again."; note.classList.add("is-error"); }
         newChallenge();
         return;
       }
-
       if (submitBtn) submitBtn.disabled = true;
-      if (note) {
-        note.textContent = "Sending…";
-        note.classList.remove("is-error");
-      }
-
+      if (note) { note.textContent = "Sending…"; note.classList.remove("is-error"); }
       var formData = new FormData(form);
       formData.delete("company");
       formData.delete("captcha");
-
       fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
@@ -126,66 +133,28 @@
         .then(function (res) { return res.json(); })
         .then(function (data) {
           if (data.success) {
-            note.textContent = "Thanks — your message has been sent. I’ll get back to you shortly.";
+            note.textContent = "Thanks — your message has been sent. I'll get back to you shortly.";
             note.classList.remove("is-error");
-            form.reset();
-            loadedAt = Date.now();
-            newChallenge();
+            form.reset(); loadedAt = Date.now(); newChallenge();
           } else {
-            note.textContent = "Something went wrong sending your message — please email me directly instead.";
+            note.textContent = "Something went wrong — please try again.";
             note.classList.add("is-error");
           }
         })
         .catch(function () {
-          note.textContent = "Something went wrong sending your message — please email me directly instead.";
+          note.textContent = "Something went wrong — please try again.";
           note.classList.add("is-error");
         })
-        .finally(function () {
-          if (submitBtn) submitBtn.disabled = false;
-        });
+        .finally(function () { if (submitBtn) submitBtn.disabled = false; });
     });
   }
 
-  // Project page carousel
-  var carousel = document.querySelector(".project-carousel");
-  if (carousel) {
-    var slides = carousel.querySelectorAll(".carousel-slide");
-    var dotsContainer = carousel.querySelector(".carousel-dots");
-    var current = 0;
-
-    // Build dots
-    slides.forEach(function (_, i) {
-      var dot = document.createElement("button");
-      dot.className = "carousel-dot" + (i === 0 ? " active" : "");
-      dot.setAttribute("aria-label", "Go to slide " + (i + 1));
-      dot.addEventListener("click", function () { goTo(i); });
-      dotsContainer.appendChild(dot);
-    });
-
-    function goTo(index) {
-      slides[current].classList.remove("active");
-      dotsContainer.querySelectorAll(".carousel-dot")[current].classList.remove("active");
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add("active");
-      dotsContainer.querySelectorAll(".carousel-dot")[current].classList.add("active");
-    }
-
-    var prevBtn = carousel.querySelector(".carousel-btn.prev");
-    var nextBtn = carousel.querySelector(".carousel-btn.next");
-    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(current + 1); });
-
-    // Auto-advance every 4s
-    setInterval(function () { goTo(current + 1); }, 4000);
-  }
-
-  // Lightbox for project gallery
+  // Lightbox
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lightbox-img");
   if (lb && lbImg) {
     function lbOpen(src, alt) {
-      lbImg.src = src;
-      lbImg.alt = alt || "";
+      lbImg.src = src; lbImg.alt = alt || "";
       lb.classList.add("open");
       document.body.style.overflow = "hidden";
     }
@@ -194,7 +163,7 @@
       document.body.style.overflow = "";
       lbImg.src = "";
     }
-    document.querySelectorAll(".masonry-col img, .project-gallery img").forEach(function (img) {
+    document.querySelectorAll(".eg-block img, .masonry-col img, .project-gallery img").forEach(function (img) {
       img.addEventListener("click", function () { lbOpen(img.src, img.alt); });
     });
     lb.addEventListener("click", function (e) { if (e.target === lb) lbClose(); });
