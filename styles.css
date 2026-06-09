@@ -916,38 +916,48 @@ img {
 .folder-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
   padding-bottom: 80px;
 }
 
+/* The whole folder object: tab + body together */
 .folder-item {
   position: relative;
+  margin-top: 12px;
 }
 
+/* Tab: same colour as the card, sits above it, rounded top corners only */
 .folder-tab {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 22px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: var(--text);
-  padding: 0 0 8px 2px;
+  border-radius: 10px 10px 0 0;
+  /* colour set per variant below */
+  position: relative;
+  z-index: 1;
+  /* flush against the card below — no gap */
+  margin-bottom: -1px;
 }
 
+/* Card body */
 .folder-card {
   display: block;
   position: relative;
   width: 100%;
-  height: 62vw;
-  max-height: 640px;
-  border-radius: 18px;
+  height: 60vw;
+  max-height: 620px;
+  /* top-left corner flat (connects to tab), rest rounded */
+  border-radius: 0 18px 18px 18px;
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.4s ease;
 }
 
-.folder-card:hover {
-  transform: scale(0.995);
-}
+.folder-card:hover { transform: scale(0.998); }
 
 .folder-card img,
 .folder-card .ph {
@@ -959,13 +969,20 @@ img {
 }
 
 .folder-card:hover img,
-.folder-card:hover .ph {
-  transform: scale(1.03);
-}
+.folder-card:hover .ph { transform: scale(1.03); }
 
-.folder-card--light { background: #e8e6e1; }
-.folder-card--dark  { background: #1a1a1c; }
-.folder-card--warm  { background: #e4ddd4; }
+/* Colour variants — tab and card share same bg */
+.folder-item--light .folder-tab  { background: #e8e6e1; color: #111; }
+.folder-item--light .folder-card { background: #e8e6e1; }
+
+.folder-item--dark .folder-tab   { background: #1c1c1e; color: #f5f5f3; }
+.folder-item--dark .folder-card  { background: #1c1c1e; }
+
+.folder-item--warm .folder-tab   { background: #e2dbd2; color: #111; }
+.folder-item--warm .folder-card  { background: #e2dbd2; }
+
+.folder-item--mid .folder-tab    { background: #2a2a2e; color: #f5f5f3; }
+.folder-item--mid .folder-card   { background: #2a2a2e; }
 
 .ph.ph-folder {
   display: flex;
@@ -1006,7 +1023,7 @@ img {
   .folder-card {
     height: 72vw;
     max-height: none;
-    border-radius: 12px;
+    border-radius: 0 12px 12px 12px;
   }
   .folder-header { padding: 40px 0 32px; }
 }
