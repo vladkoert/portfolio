@@ -33,8 +33,6 @@
     <a href="/contact">Contact</a>
   </nav>
 
-  <img class="work-hover-img" id="workHoverImg" src="" alt="" aria-hidden="true" />
-
   <main>
 
     <div class="portfolio-hero">
@@ -44,7 +42,8 @@
       </div>
     </div>
 
-    <section class="sec">
+    <section class="sec work-section" id="workSection">
+      <img class="work-hover-img" id="workHoverImg" src="" alt="" aria-hidden="true" />
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-label">All projects</span>
@@ -124,15 +123,16 @@
 
     // Work-list cursor image
     (function () {
-      var img = document.getElementById('workHoverImg');
-      if (!img) return;
+      var section = document.getElementById('workSection');
+      var img     = document.getElementById('workHoverImg');
+      if (!section || !img) return;
       function lerp(a, b, t) { return a + (b - a) * t; }
-      var active = false, raf = null;
+      var active  = false, raf = null;
       var targetX = 0, targetY = 0, curX = 0, curY = 0;
       function animate() {
         curX = lerp(curX, targetX, 0.08);
         curY = lerp(curY, targetY, 0.08);
-        img.style.transform = 'translate(calc(' + curX + 'px - 50%), calc(' + curY + 'px - 50%))';
+        img.style.transform = 'translate(calc(-50% + ' + curX + 'px), calc(-50% + ' + curY + 'px))';
         raf = requestAnimationFrame(animate);
       }
       document.querySelectorAll('.work-item[data-img]').forEach(function(item) {
@@ -145,12 +145,19 @@
         item.addEventListener('mouseleave', function() {
           active = false;
           img.style.opacity = '0';
+          targetX = 0; targetY = 0;
         });
       });
-      document.addEventListener('mousemove', function(e) {
+      section.addEventListener('mousemove', function(e) {
         if (!active) return;
-        targetX = e.clientX;
-        targetY = e.clientY;
+        var r = section.getBoundingClientRect();
+        targetX = (e.clientX - r.left) - r.width  / 2;
+        targetY = (e.clientY - r.top)  - r.height / 2;
+      });
+      section.addEventListener('mouseleave', function() {
+        active = false;
+        img.style.opacity = '0';
+        targetX = 0; targetY = 0;
       });
     })();
   </script>

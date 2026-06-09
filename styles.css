@@ -146,19 +146,29 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 /* ── Work-list hover image (portfolio page) ──────── */
+.work-section {
+  position: relative;
+  overflow: hidden;
+}
+
 .work-hover-img {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: clamp(180px, 22vw, 360px);
   aspect-ratio: 4/3;
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
-  z-index: 200;
+  z-index: 0;
   will-change: transform;
   transform: translate(-50%, -50%);
+}
+
+.work-list {
+  position: relative;
+  z-index: 1;
 }
 
 @media (pointer: coarse) {
