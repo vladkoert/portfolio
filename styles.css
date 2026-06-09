@@ -164,6 +164,24 @@ body.nav-open .nav-overlay { display: flex; }
   display: block;
 }
 
+.hero-eyebrow {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+.hero-tagline {
+  font-size: clamp(42px, 8vw, 110px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--text);
+  margin: 0;
+}
+
 .hero-foot {
   max-width: var(--max);
   margin: 0 auto;
@@ -313,6 +331,21 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 .see-all:hover { color: var(--text); }
+
+/* ── Homepage CTA ────────────────────────────────── */
+.sec--cta {
+  padding: 64px 0;
+}
+
+.cta-link {
+  font-size: clamp(28px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--dim);
+  transition: color 0.2s;
+}
+
+.cta-link:hover { color: var(--text); }
 
 /* ── Statement ───────────────────────────────────── */
 .statement {
