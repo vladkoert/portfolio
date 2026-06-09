@@ -51,7 +51,8 @@
   <main>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="hero">
+      <img class="hero-img" src="/images/Me/vlad.jpg" alt="" aria-hidden="true" />
       <div class="hero-name-wrap">
         <span class="hero-name">Vlad</span>
         <span class="hero-name">Koert</span>
@@ -180,6 +181,58 @@
         });
       });
     }
+
+    // Hero parallax image
+    (function () {
+      var hero     = document.getElementById('hero');
+      var nameWrap = hero && hero.querySelector('.hero-name-wrap');
+      var img      = hero && hero.querySelector('.hero-img');
+      if (!hero || !img || !nameWrap) return;
+
+      var active = false;
+      var raf    = null;
+      var tx = 0, ty = 0;
+
+      function lerp(a, b, t) { return a + (b - a) * t; }
+
+      var targetX = 0, targetY = 0, curX = 0, curY = 0;
+
+      function animate() {
+        curX = lerp(curX, targetX, 0.08);
+        curY = lerp(curY, targetY, 0.08);
+        img.style.transform = 'scale(1.12) translate(' + curX + 'px, ' + curY + 'px)';
+        raf = requestAnimationFrame(animate);
+      }
+
+      // Show on name hover
+      nameWrap.addEventListener('mouseenter', function () {
+        active = true;
+        img.style.opacity = '1';
+        if (!raf) raf = requestAnimationFrame(animate);
+      });
+
+      nameWrap.addEventListener('mouseleave', function () {
+        active = false;
+        img.style.opacity = '0';
+        targetX = 0; targetY = 0;
+      });
+
+      // Track mouse across whole hero
+      hero.addEventListener('mousemove', function (e) {
+        if (!active) return;
+        var r  = hero.getBoundingClientRect();
+        var x  = (e.clientX - r.left)  / r.width  - 0.5;
+        var y  = (e.clientY - r.top)   / r.height - 0.5;
+        targetX = x * 40;
+        targetY = y * 40;
+      });
+
+      hero.addEventListener('mouseleave', function () {
+        active = false;
+        img.style.opacity = '0';
+        targetX = 0; targetY = 0;
+      });
+    })();
   </script>
   <script src="/script.js"></script>
 </body>
