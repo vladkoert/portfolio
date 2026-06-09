@@ -966,20 +966,30 @@ img {
 
 .folder-card:hover { transform: scale(0.998); }
 
-/* Name + tags below the card */
-.folder-below {
+/* Name + tags overlaid inside the card */
+.folder-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 72px 24px 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  padding: 14px 4px 0;
   gap: 12px;
 }
 
+/* Light card variants (warm/light bg) use a softer dark-to-transparent gradient */
+.folder-overlay--light {
+  background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 100%);
+}
+
 .folder-name {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.01em;
+  color: #fff;
+  letter-spacing: -0.02em;
 }
 
 .folder-tags {
@@ -987,7 +997,9 @@ img {
   gap: 6px;
   opacity: 0;
   transform: translateY(4px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  align-self: flex-end;
+  padding-bottom: 2px;
 }
 
 .folder-item:hover .folder-tags {
@@ -1000,9 +1012,11 @@ img {
   font-weight: 500;
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  color: var(--text-dim);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85);
   white-space: nowrap;
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.08);
 }
 
 .folder-card img,
