@@ -916,11 +916,28 @@ img {
 .folder-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   padding-bottom: 80px;
 }
 
-/* One card = the whole folder object */
+/* Folder item: name sits at top-left corner level of the card */
+.folder-item {
+  position: relative;
+  padding-top: 30px;
+}
+
+.folder-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  line-height: 30px;
+}
+
+/* Card starts right below the name line — corner flush */
 .folder-card {
   display: block;
   position: relative;
@@ -934,17 +951,6 @@ img {
 }
 
 .folder-card:hover { transform: scale(0.998); }
-
-/* Project name — outside card, top-left, on page background */
-.folder-name {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 10px;
-  padding-left: 4px;
-  letter-spacing: 0.01em;
-}
 
 .folder-card img,
 .folder-card .ph {
