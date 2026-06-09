@@ -935,19 +935,15 @@ img {
 
 .folder-card:hover { transform: scale(0.998); }
 
-/* Project name — top-left corner inside the card */
+/* Project name — outside card, top-left, on page background */
 .folder-name {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 10;
+  display: block;
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  background: var(--bg);
+  font-weight: 500;
   color: var(--text);
-  padding: 6px 14px;
-  border-radius: 999px;
+  margin-bottom: 10px;
+  padding-left: 4px;
+  letter-spacing: 0.01em;
 }
 
 .folder-card img,
