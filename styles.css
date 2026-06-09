@@ -12,7 +12,7 @@
 
 /* ── Reset ──────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html  { scroll-behavior: smooth; }
+html  { scroll-behavior: smooth; overflow-x: hidden; }
 img   { display: block; max-width: 100%; }
 a     { color: inherit; text-decoration: none; }
 button { cursor: pointer; font-family: inherit; background: none; border: none; }
@@ -807,6 +807,19 @@ body.nav-open .nav-overlay { display: flex; }
   transform: translateX(8px);
 }
 
+/* ── Tablet ──────────────────────────────────────── */
+@media (max-width: 960px) {
+  .tbl-row { grid-template-columns: 160px 1fr; gap: 24px; }
+
+  .pj-meta { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pj-meta-desc { grid-column: 1 / -1; order: 3; }
+
+  .pj-stmt-grid { grid-template-columns: 1fr; gap: 40px; }
+  .pj-statement { padding: 80px 0; }
+
+  .contact-layout { gap: 48px; }
+}
+
 /* ── Mobile ──────────────────────────────────────── */
 @media (max-width: 720px) {
   :root { --pad: 20px; }
@@ -814,21 +827,27 @@ body.nav-open .nav-overlay { display: flex; }
   .site-nav { display: none; }
   .menu-btn { display: flex; }
 
-  .hero-name { font-size: clamp(60px, 20vw, 120px); }
+  .hero-tagline { font-size: clamp(30px, 9vw, 42px); }
   .hero-foot { flex-direction: column; align-items: flex-start; gap: 12px; }
   .hero-meta { text-align: left; }
 
   .tbl-row { grid-template-columns: 1fr; gap: 8px; }
   .tbl-key { color: var(--dim); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
 
+  .statement { padding: 60px 0; }
+  .sec--cta { padding: 48px 0; }
+
   .work-item { grid-template-columns: 1fr auto; }
   .work-meta { display: none; }
 
-  .pj-meta { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .pj-meta-desc { grid-column: 1 / -1; order: 3; }
+  .pj-hero { padding: calc(52px + 40px) 0 40px; }
+  .pj-back { margin-bottom: 32px; }
+  .pj-title { margin-bottom: 36px; }
+  .pj-sec-hd { padding: 40px 0 24px; }
+  .pj-gallery { margin-bottom: 48px; }
   .pj-card { flex: 0 0 80vw; }
-  .pj-stmt-grid { grid-template-columns: 1fr; gap: 36px; }
-  .pj-statement { padding: 64px 0; }
+  .pj-statement { padding: 60px 0; }
+  .pj-next-name { font-size: clamp(36px, 9vw, 80px); }
 
   .contact-layout { grid-template-columns: 1fr; gap: 48px; }
   .portfolio-hero h1, .contact-hero h1 { font-size: clamp(56px, 18vw, 100px); }
