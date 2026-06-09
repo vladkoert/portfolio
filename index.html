@@ -32,7 +32,7 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="/">Vlad Koert</a>
+      <a class="logo" href="/">Digital creative &amp; photographer</a>
       <nav class="site-nav">
         <a href="/portfolio">Work</a>
         <a href="/#about">About</a>
@@ -73,18 +73,27 @@
         <div class="tbl-row">
           <div class="tbl-key">Abstract</div>
           <div class="tbl-val">
-            <p>Five years as a digital creative, across graphic design, web, video, print, photography and 3D. I work at the intersection of craft and concept — making things that feel considered.</p>
+            <p>Five years as a digital creative, across graphic design, web, video, print, photography and 3D — plus fifteen years behind the camera that still shape how I see composition, light and story.</p>
+            <p>I'm naturally curious and tech-oriented, drawn to new tools and the systems behind creative work. I help teams turn dense subjects into stories people actually want to look at.</p>
           </div>
         </div>
         <div class="tbl-row">
-          <div class="tbl-key">Disciplines</div>
+          <div class="tbl-key">What I do</div>
           <div class="tbl-val">
-            <p>Graphic design · Brand identity · Web design · Photography · Art direction · Video · 3D · AI-assisted workflows</p>
+            <p>Graphic design &amp; brand identity</p>
+            <p>Web design &amp; front-end</p>
+            <p>Photography &amp; art direction</p>
+            <p>Video, motion &amp; 3D</p>
+            <p>AI-assisted creative workflows</p>
           </div>
         </div>
         <div class="tbl-row">
           <div class="tbl-key">Based</div>
           <div class="tbl-val"><p>Brussels, Belgium</p></div>
+        </div>
+        <div class="tbl-row">
+          <div class="tbl-key">Experience</div>
+          <div class="tbl-val"><p>5+ years digital creative · 15+ years photography</p></div>
         </div>
         <div class="tbl-row">
           <div class="tbl-key">Status</div>
@@ -182,29 +191,27 @@
       });
     }
 
-    // Hero parallax image
+    // Hero cursor-follow image
     (function () {
       var hero     = document.getElementById('hero');
       var nameWrap = hero && hero.querySelector('.hero-name-wrap');
       var img      = hero && hero.querySelector('.hero-img');
       if (!hero || !img || !nameWrap) return;
 
-      var active = false;
-      var raf    = null;
-      var tx = 0, ty = 0;
-
       function lerp(a, b, t) { return a + (b - a) * t; }
 
-      var targetX = 0, targetY = 0, curX = 0, curY = 0;
+      var active  = false;
+      var raf     = null;
+      var targetX = 0, targetY = 0;
+      var curX    = 0, curY    = 0;
 
       function animate() {
-        curX = lerp(curX, targetX, 0.08);
-        curY = lerp(curY, targetY, 0.08);
-        img.style.transform = 'scale(1.12) translate(' + curX + 'px, ' + curY + 'px)';
+        curX = lerp(curX, targetX, 0.07);
+        curY = lerp(curY, targetY, 0.07);
+        img.style.transform = 'translate(calc(-50% + ' + curX + 'px), calc(-50% + ' + curY + 'px))';
         raf = requestAnimationFrame(animate);
       }
 
-      // Show on name hover
       nameWrap.addEventListener('mouseenter', function () {
         active = true;
         img.style.opacity = '1';
@@ -217,14 +224,11 @@
         targetX = 0; targetY = 0;
       });
 
-      // Track mouse across whole hero
       hero.addEventListener('mousemove', function (e) {
         if (!active) return;
-        var r  = hero.getBoundingClientRect();
-        var x  = (e.clientX - r.left)  / r.width  - 0.5;
-        var y  = (e.clientY - r.top)   / r.height - 0.5;
-        targetX = x * 40;
-        targetY = y * 40;
+        var r = hero.getBoundingClientRect();
+        targetX = (e.clientX - r.left)  - r.width  / 2;
+        targetY = (e.clientY - r.top)   - r.height / 2;
       });
 
       hero.addEventListener('mouseleave', function () {
