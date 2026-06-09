@@ -916,48 +916,35 @@ img {
 .folder-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 12px;
   padding-bottom: 80px;
 }
 
-/* The whole folder object: tab + body together */
-.folder-item {
-  position: relative;
-  margin-top: 12px;
-}
-
-/* Tab: same colour as the card, sits above it, rounded top corners only */
-.folder-tab {
-  display: inline-flex;
-  align-items: center;
-  height: 38px;
-  padding: 0 22px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  border-radius: 10px 10px 0 0;
-  /* colour set per variant below */
-  position: relative;
-  z-index: 1;
-  /* flush against the card below — no gap */
-  margin-bottom: -1px;
-}
-
-/* Card body */
+/* One card = the whole folder object */
 .folder-card {
   display: block;
   position: relative;
   width: 100%;
   height: 60vw;
   max-height: 620px;
-  /* top-left corner flat (connects to tab), rest rounded */
-  border-radius: 0 18px 18px 18px;
+  border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.4s ease;
 }
 
 .folder-card:hover { transform: scale(0.998); }
+
+/* Project name — top-left corner inside the card */
+.folder-name {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
 
 .folder-card img,
 .folder-card .ph {
@@ -971,18 +958,18 @@ img {
 .folder-card:hover img,
 .folder-card:hover .ph { transform: scale(1.03); }
 
-/* Colour variants — tab and card share same bg */
-.folder-item--light .folder-tab  { background: #e8e6e1; color: #111; }
-.folder-item--light .folder-card { background: #e8e6e1; }
+/* Colour variants */
+.folder-card--light { background: #e8e6e1; }
+.folder-card--light .folder-name { color: #111; }
 
-.folder-item--dark .folder-tab   { background: #1c1c1e; color: #f5f5f3; }
-.folder-item--dark .folder-card  { background: #1c1c1e; }
+.folder-card--dark  { background: #1c1c1e; }
+.folder-card--dark  .folder-name { color: #f0f0ee; }
 
-.folder-item--warm .folder-tab   { background: #e2dbd2; color: #111; }
-.folder-item--warm .folder-card  { background: #e2dbd2; }
+.folder-card--warm  { background: #e2dbd2; }
+.folder-card--warm  .folder-name { color: #111; }
 
-.folder-item--mid .folder-tab    { background: #2a2a2e; color: #f5f5f3; }
-.folder-item--mid .folder-card   { background: #2a2a2e; }
+.folder-card--mid   { background: #2a2a2e; }
+.folder-card--mid   .folder-name { color: #f0f0ee; }
 
 .ph.ph-folder {
   display: flex;
@@ -992,38 +979,11 @@ img {
   width: 100%;
 }
 
-.folder-card-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 28px 32px;
-  background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.folder-card:hover .folder-card-overlay {
-  opacity: 1;
-}
-
-.folder-cta {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(8px);
-  padding: 8px 18px;
-  border-radius: 999px;
-}
-
 @media (max-width: 720px) {
   .folder-card {
     height: 72vw;
     max-height: none;
-    border-radius: 0 12px 12px 12px;
+    border-radius: 14px;
   }
   .folder-header { padding: 40px 0 32px; }
 }
