@@ -747,6 +747,56 @@ body.nav-open .nav-overlay { display: flex; }
   border-top: 1px solid var(--border);
 }
 
+/* ── Next project nav ────────────────────────────── */
+.pj-next {
+  display: block;
+  border-top: 1px solid var(--border);
+  padding: 56px 0 72px;
+  transition: background 0.3s;
+}
+
+.pj-next:hover {
+  background: rgba(240,240,236,0.03);
+}
+
+.pj-next-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pj-next-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.pj-next-name {
+  font-size: clamp(48px, 10vw, 130px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 0.2em;
+  transition: gap 0.3s;
+}
+
+.pj-next-arrow {
+  font-weight: 300;
+  color: var(--dim);
+  transition: color 0.2s, transform 0.3s;
+  display: inline-block;
+}
+
+.pj-next:hover .pj-next-arrow {
+  color: var(--text);
+  transform: translateX(8px);
+}
+
 /* ── Mobile ──────────────────────────────────────── */
 @media (max-width: 720px) {
   :root { --pad: 20px; }
