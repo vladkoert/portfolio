@@ -893,6 +893,124 @@ img {
   max-width: 18ch;
 }
 
+/* ---------- Portfolio folder list (Norden style) ---------- */
+
+.folder-header {
+  padding: 64px 0 48px;
+}
+
+.folder-header h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.folder-header p {
+  color: var(--text-dim);
+  font-size: 16px;
+  max-width: 40ch;
+}
+
+.folder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 80px;
+}
+
+.folder-item {
+  position: relative;
+}
+
+.folder-tab {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  padding: 0 0 8px 2px;
+}
+
+.folder-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 62vw;
+  max-height: 640px;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.4s ease;
+}
+
+.folder-card:hover {
+  transform: scale(0.995);
+}
+
+.folder-card img,
+.folder-card .ph {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.folder-card:hover img,
+.folder-card:hover .ph {
+  transform: scale(1.03);
+}
+
+.folder-card--light { background: #e8e6e1; }
+.folder-card--dark  { background: #1a1a1c; }
+.folder-card--warm  { background: #e4ddd4; }
+
+.ph.ph-folder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.folder-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 28px 32px;
+  background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.folder-card:hover .folder-card-overlay {
+  opacity: 1;
+}
+
+.folder-cta {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  padding: 8px 18px;
+  border-radius: 999px;
+}
+
+@media (max-width: 720px) {
+  .folder-card {
+    height: 72vw;
+    max-height: none;
+    border-radius: 12px;
+  }
+  .folder-header { padding: 40px 0 32px; }
+}
+
 /* ---------- Portfolio stage (Hanssen layout) ---------- */
 
 .portfolio-page main,

@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio — Vlad Koert | Brand Design, Photography &amp; Web Projects</title>
   <meta name="description" content="Browse Vlad Koert's portfolio: brand identity systems, editorial photography, web design and motion/3D projects. Filter by discipline to explore selected case studies." />
-  <meta name="keywords" content="Vlad Koert portfolio, brand identity design, editorial photography, web design projects, motion design, 3D, Brussels designer" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://vladkoert.com/portfolio" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vlad Koert" />
   <meta property="og:title" content="Portfolio — Vlad Koert" />
-  <meta property="og:description" content="Selected projects in brand identity, photography, web design and motion/3D — filterable by discipline." />
+  <meta property="og:description" content="Selected projects in brand identity, photography, web design and motion/3D." />
   <meta property="og:url" content="https://vladkoert.com/portfolio" />
   <meta property="og:image" content="https://vladkoert.com/og-image.jpg" />
-  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Portfolio — Vlad Koert" />
-  <meta name="twitter:description" content="Selected projects in brand identity, photography, web design and motion/3D — filterable by discipline." />
   <meta name="twitter:image" content="https://vladkoert.com/og-image.jpg" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
@@ -53,143 +50,71 @@
   </header>
 
   <main>
-    <section class="page-intro">
-      <div class="wrap">
-        <p class="eyebrow">Portfolio</p>
-        <h1>Selected projects across design, photography, web and motion.</h1>
-        <p>
-          A mix of identity systems, editorial photography, web builds and experimental
-          pieces — filter by discipline to browse, or get in touch to see full case studies.
-        </p>
+    <div class="wrap">
+      <div class="folder-header">
+        <h1>Work</h1>
+        <p>Selected projects across design, photography, web and motion.</p>
       </div>
-    </section>
 
-    <section class="section" style="padding-top: 24px;">
-      <div class="wrap">
-        <div class="filters">
-          <button class="filter-btn active" data-filter="all">All work</button>
-          <button class="filter-btn" data-filter="design">Design</button>
-          <button class="filter-btn" data-filter="photo">Photography</button>
-          <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="motion">Video &amp; 3D</button>
+      <div class="folder-list">
+
+        <!-- Wrestling — real photos -->
+        <div class="folder-item">
+          <span class="folder-tab">Wrestling</span>
+          <a class="folder-card folder-card--dark" href="/portfolio/wrestling">
+            <img src="/images/Photography/Wrestling/web/wrestling-05.jpg" alt="Wrestling event photography" loading="lazy" />
+            <div class="folder-card-overlay">
+              <span class="folder-cta">View project →</span>
+            </div>
+          </a>
         </div>
 
-        <div class="work-grid">
-
-          <article class="work-card featured" data-category="photo">
-            <a class="work-card-link" href="/portfolio/wrestling" aria-label="View Wrestling project"></a>
-            <div class="work-img">
-              <img src="/images/Photography/Wrestling/web/wrestling-05.jpg" alt="Wrestling event photography" loading="lazy" />
+        <!-- Northline — placeholder -->
+        <div class="folder-item">
+          <span class="folder-tab">Northline</span>
+          <a class="folder-card folder-card--light" href="#">
+            <div class="ph ph-folder"><span class="ph-label">Brand identity &amp; print system</span></div>
+            <div class="folder-card-overlay">
+              <span class="folder-cta">Coming soon</span>
             </div>
-            <div class="work-meta">
-              <div>
-                <h3>Wrestling</h3>
-                <p>Ringside event photography</p>
-              </div>
-              <span class="tag">Photo</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="design">
-            <div class="ph"><span class="ph-label">Brand identity</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Northline</h3>
-                <p>Visual identity &amp; print system</p>
-              </div>
-              <span class="tag">Design</span>
-            </div>
-          </article>
-
-          <article class="work-card landscape" data-category="web">
-            <div class="ph"><span class="ph-label">Web &amp; product</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Atlas dashboard</h3>
-                <p>Web design &amp; front-end build</p>
-              </div>
-              <span class="tag">Web</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="design">
-            <div class="ph"><span class="ph-label">Editorial layout</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Field notes</h3>
-                <p>Magazine layout &amp; print design</p>
-              </div>
-              <span class="tag">Design</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="motion">
-            <div class="ph"><span class="ph-label">3D &amp; motion</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Surface studies</h3>
-                <p>3D renders &amp; motion experiments</p>
-              </div>
-              <span class="tag">3D</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="photo">
-            <div class="ph"><span class="ph-label">Street photography</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Greyscale city</h3>
-                <p>Personal photo essay</p>
-              </div>
-              <span class="tag">Photo</span>
-            </div>
-          </article>
-
-          <article class="work-card landscape" data-category="web">
-            <div class="ph"><span class="ph-label">Web &amp; interaction</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Pulse</h3>
-                <p>Landing page &amp; micro-interactions</p>
-              </div>
-              <span class="tag">Web</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="motion">
-            <div class="ph"><span class="ph-label">Video &amp; cut</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Short cuts</h3>
-                <p>Brand video &amp; motion design</p>
-              </div>
-              <span class="tag">Video</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-category="design">
-            <div class="ph"><span class="ph-label">Packaging</span></div>
-            <div class="work-meta">
-              <div>
-                <h3>Mineral co.</h3>
-                <p>Packaging &amp; brand identity</p>
-              </div>
-              <span class="tag">Design</span>
-            </div>
-          </article>
-
+          </a>
         </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="cta-band">
-          <h2>Like what you see? Let's talk about your next project.</h2>
-          <a class="btn btn-solid" href="/contact">Start a conversation →</a>
+        <!-- Atlas — placeholder -->
+        <div class="folder-item">
+          <span class="folder-tab">Atlas</span>
+          <a class="folder-card folder-card--dark" href="#">
+            <div class="ph ph-folder"><span class="ph-label">Web design &amp; front-end build</span></div>
+            <div class="folder-card-overlay">
+              <span class="folder-cta">Coming soon</span>
+            </div>
+          </a>
         </div>
+
+        <!-- Field Notes — placeholder -->
+        <div class="folder-item">
+          <span class="folder-tab">Field Notes</span>
+          <a class="folder-card folder-card--warm" href="#">
+            <div class="ph ph-folder"><span class="ph-label">Magazine layout &amp; print design</span></div>
+            <div class="folder-card-overlay">
+              <span class="folder-cta">Coming soon</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Surface Studies — placeholder -->
+        <div class="folder-item">
+          <span class="folder-tab">Surface Studies</span>
+          <a class="folder-card folder-card--dark" href="#">
+            <div class="ph ph-folder"><span class="ph-label">3D renders &amp; motion experiments</span></div>
+            <div class="folder-card-overlay">
+              <span class="folder-cta">Coming soon</span>
+            </div>
+          </a>
+        </div>
+
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
