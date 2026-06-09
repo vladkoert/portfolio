@@ -1179,10 +1179,11 @@ body.project-dark .footer-note { color: rgba(255,255,255,0.2); }
   line-height: 1;
 }
 
-/* Image blocks */
+/* ---- Image / layout blocks ---- */
+
 .pj-full {
   width: 100%;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .pj-full img {
@@ -1193,19 +1194,73 @@ body.project-dark .footer-note { color: rgba(255,255,255,0.2); }
   user-select: none;
 }
 
-.pj-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  margin-bottom: 4px;
-}
-
+/* Generic image cell */
 .pj-img img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   pointer-events: none;
   user-select: none;
+}
+
+/* Vertical offset helpers */
+.pj-img--sink    { margin-top: 72px; }
+.pj-img--sink-lg { margin-top: 120px; }
+
+/* Caption / text block */
+.pj-caption {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 12px;
+}
+
+.pj-caption--r {
+  align-items: flex-end;
+  padding-bottom: 24px;
+  padding-top: 0;
+}
+
+.pj-caption p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.42);
+  margin: 0;
+  max-width: 320px;
+}
+
+/* ---- Row recipes ---- */
+.pj-row {
+  display: grid;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+/* Text narrow · image wide */
+.pj-row--txt-r {
+  grid-template-columns: 280px 1fr;
+  align-items: end;
+  gap: 48px;
+}
+
+/* Large left · small right */
+.pj-row--lg-sm {
+  grid-template-columns: 3fr 2fr;
+  align-items: start;
+}
+
+/* Small left · large right */
+.pj-row--sm-lg {
+  grid-template-columns: 2fr 3fr;
+  align-items: start;
+}
+
+/* Image wide · text narrow */
+.pj-row--img-txt {
+  grid-template-columns: 1fr 280px;
+  align-items: end;
+  gap: 48px;
 }
 
 .pj-end {
@@ -1217,8 +1272,14 @@ body.project-dark .footer-note { color: rgba(255,255,255,0.2); }
 @media (max-width: 720px) {
   .pj-meta { grid-template-columns: 1fr 1fr; gap: 20px; }
   .pj-meta-desc { grid-column: 1 / -1; order: 3; }
-  .pj-pair { grid-template-columns: 1fr; }
   .pj-hero { padding: 48px 0 40px; }
+  .pj-row--txt-r,
+  .pj-row--img-txt { grid-template-columns: 1fr; gap: 20px; }
+  .pj-row--lg-sm,
+  .pj-row--sm-lg { grid-template-columns: 1fr; }
+  .pj-img--sink,
+  .pj-img--sink-lg { margin-top: 0; }
+  .pj-caption--r { padding-bottom: 0; }
 }
 
 /* ---------- Works list layout ---------- */
