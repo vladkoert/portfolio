@@ -1051,6 +1051,174 @@ img {
   .folder-header { padding: 40px 0 32px; }
 }
 
+/* ---------- Works list layout ---------- */
+
+.works-hd {
+  padding: 72px 0 36px;
+  border-bottom: 1px solid var(--border);
+}
+
+.works-h1 {
+  font-size: clamp(52px, 9vw, 100px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  margin: 0 0 28px;
+}
+
+.works-seq {
+  font-size: 0.28em;
+  font-weight: 400;
+  vertical-align: middle;
+  opacity: 0.35;
+  margin-right: 10px;
+  letter-spacing: 0;
+}
+
+.works-nav {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.wn-btn {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  font-family: inherit;
+}
+
+.wn-btn:hover { color: var(--text); }
+
+.wn-btn.active {
+  border-color: var(--border);
+  color: var(--text);
+  background: var(--surface, rgba(128,128,128,0.08));
+}
+
+/* Row list */
+.works-list {
+  padding-bottom: 80px;
+}
+
+.works-row {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 48px;
+  align-items: center;
+  padding: 36px 0;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.works-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.wr-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.wr-cat {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.wr-name {
+  font-size: clamp(38px, 5.5vw, 70px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  transition: opacity 0.25s ease;
+}
+
+.works-row:hover .wr-name { opacity: 0.55; }
+
+.wr-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.wr-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.wr-tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.wr-cta {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.works-row:hover .wr-cta { color: var(--text); }
+
+.wr-cta--dim { opacity: 0.4; }
+
+/* Thumbnail */
+.wr-thumb {
+  width: 100%;
+  aspect-ratio: 3/2;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.wr-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+
+.works-row:hover .wr-thumb img { transform: scale(1.04); }
+
+/* Mobile */
+@media (max-width: 720px) {
+  .works-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 0;
+  }
+  .wr-thumb { order: -1; aspect-ratio: 16/9; }
+  .works-h1 { font-size: clamp(44px, 13vw, 72px); }
+  .wr-name  { font-size: clamp(32px, 9vw, 52px); }
+  .wr-foot  { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
 /* ---------- Portfolio stage (Hanssen layout) ---------- */
 
 .portfolio-page main,

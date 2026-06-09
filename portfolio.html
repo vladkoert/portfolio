@@ -16,8 +16,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Portfolio — Vlad Koert" />
   <meta name="twitter:image" content="https://vladkoert.com/og-image.jpg" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,71 +51,100 @@
 
   <main>
     <div class="wrap">
-      <div class="folder-header">
-        <h1>Work</h1>
-        <p>Selected projects across design, photography, web and motion.</p>
+
+      <!-- Page header -->
+      <div class="works-hd">
+        <h1 class="works-h1"><span class="works-seq">01</span> works</h1>
+        <div class="works-hd-row">
+          <nav class="works-nav" aria-label="Filter projects">
+            <button class="wn-btn active" data-filter="all">All</button>
+            <button class="wn-btn" data-filter="photography">Photography</button>
+            <button class="wn-btn" data-filter="design">Design</button>
+            <button class="wn-btn" data-filter="web">Web</button>
+            <button class="wn-btn" data-filter="motion">Motion &amp; 3D</button>
+          </nav>
+        </div>
       </div>
 
-      <div class="folder-list">
+      <!-- Project list -->
+      <div class="works-list">
 
-        <!-- Wrestling -->
-        <div class="folder-item">
-          <span class="folder-hover-tag">Ringside event — Brussels, 2015</span>
-          <a class="folder-card folder-card--dark" href="/portfolio/wrestling">
+        <a class="works-row" href="/portfolio/wrestling" data-cat="photography">
+          <div class="wr-body">
+            <span class="wr-cat">Ringside event photography</span>
+            <span class="wr-name">Wrestling</span>
+            <div class="wr-foot">
+              <div class="wr-tags">
+                <span class="wr-tag">Photography</span>
+                <span class="wr-tag">Event</span>
+                <span class="wr-tag">2015</span>
+              </div>
+              <span class="wr-cta">View the ——— project</span>
+            </div>
+          </div>
+          <div class="wr-thumb">
             <img src="/images/Photography/Wrestling/web/wrestling-05.jpg" alt="Wrestling event photography" loading="lazy" />
-            <div class="folder-overlay">
-              <span class="folder-name">Wrestling</span>
-              <div class="folder-tags"><span class="folder-tag">Photography</span><span class="folder-tag">Event</span></div>
+          </div>
+        </a>
+
+        <div class="works-row" data-cat="design">
+          <div class="wr-body">
+            <span class="wr-cat">Visual identity &amp; print system</span>
+            <span class="wr-name">Northline</span>
+            <div class="wr-foot">
+              <div class="wr-tags">
+                <span class="wr-tag">Design</span>
+                <span class="wr-tag">Branding</span>
+              </div>
+              <span class="wr-cta wr-cta--dim">Coming soon</span>
             </div>
-          </a>
+          </div>
+          <div class="wr-thumb wr-thumb--ph" style="background:#e8e6e1;"></div>
         </div>
 
-        <!-- Northline -->
-        <div class="folder-item">
-          <span class="folder-hover-tag">Visual identity &amp; print system</span>
-          <a class="folder-card folder-card--light" href="#">
-            <div class="ph ph-folder"><span class="ph-label">Brand identity</span></div>
-            <div class="folder-overlay folder-overlay--light">
-              <span class="folder-name">Northline</span>
-              <div class="folder-tags"><span class="folder-tag">Design</span><span class="folder-tag">Branding</span></div>
+        <div class="works-row" data-cat="web">
+          <div class="wr-body">
+            <span class="wr-cat">Web design &amp; front-end build</span>
+            <span class="wr-name">Atlas</span>
+            <div class="wr-foot">
+              <div class="wr-tags">
+                <span class="wr-tag">Web</span>
+                <span class="wr-tag">Front-end</span>
+              </div>
+              <span class="wr-cta wr-cta--dim">Coming soon</span>
             </div>
-          </a>
+          </div>
+          <div class="wr-thumb wr-thumb--ph" style="background:#2a2a2e;"></div>
         </div>
 
-        <!-- Atlas -->
-        <div class="folder-item">
-          <span class="folder-hover-tag">Web design &amp; front-end build</span>
-          <a class="folder-card folder-card--mid" href="#">
-            <div class="ph ph-folder"><span class="ph-label">Web &amp; product</span></div>
-            <div class="folder-overlay">
-              <span class="folder-name">Atlas</span>
-              <div class="folder-tags"><span class="folder-tag">Web</span><span class="folder-tag">Front-end</span></div>
+        <div class="works-row" data-cat="design">
+          <div class="wr-body">
+            <span class="wr-cat">Magazine layout &amp; print design</span>
+            <span class="wr-name">Field Notes</span>
+            <div class="wr-foot">
+              <div class="wr-tags">
+                <span class="wr-tag">Print</span>
+                <span class="wr-tag">Editorial</span>
+              </div>
+              <span class="wr-cta wr-cta--dim">Coming soon</span>
             </div>
-          </a>
+          </div>
+          <div class="wr-thumb wr-thumb--ph" style="background:#c9c4bc;"></div>
         </div>
 
-        <!-- Field Notes -->
-        <div class="folder-item">
-          <span class="folder-hover-tag">Magazine layout &amp; print design</span>
-          <a class="folder-card folder-card--warm" href="#">
-            <div class="ph ph-folder"><span class="ph-label">Editorial layout</span></div>
-            <div class="folder-overlay folder-overlay--light">
-              <span class="folder-name">Field Notes</span>
-              <div class="folder-tags"><span class="folder-tag">Print</span><span class="folder-tag">Editorial</span></div>
+        <div class="works-row" data-cat="motion">
+          <div class="wr-body">
+            <span class="wr-cat">3D renders &amp; motion experiments</span>
+            <span class="wr-name">Surface Studies</span>
+            <div class="wr-foot">
+              <div class="wr-tags">
+                <span class="wr-tag">3D</span>
+                <span class="wr-tag">Motion</span>
+              </div>
+              <span class="wr-cta wr-cta--dim">Coming soon</span>
             </div>
-          </a>
-        </div>
-
-        <!-- Surface Studies -->
-        <div class="folder-item">
-          <span class="folder-hover-tag">3D renders &amp; motion experiments</span>
-          <a class="folder-card folder-card--dark" href="#">
-            <div class="ph ph-folder"><span class="ph-label">3D &amp; motion</span></div>
-            <div class="folder-overlay">
-              <span class="folder-name">Surface Studies</span>
-              <div class="folder-tags"><span class="folder-tag">3D</span><span class="folder-tag">Motion</span></div>
-            </div>
-          </a>
+          </div>
+          <div class="wr-thumb wr-thumb--ph" style="background:#1c1c1e;"></div>
         </div>
 
       </div>
@@ -128,6 +157,19 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Filter
+    document.querySelectorAll('.wn-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.wn-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        document.querySelectorAll('.works-row').forEach(function(row) {
+          row.style.display = (f === 'all' || row.dataset.cat === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+  <script src="/script.js"></script>
 </body>
 </html>
