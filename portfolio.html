@@ -33,6 +33,8 @@
     <a href="/contact">Contact</a>
   </nav>
 
+  <img class="work-hover-img" id="workHoverImg" src="" alt="" aria-hidden="true" />
+
   <main>
 
     <div class="portfolio-hero">
@@ -50,7 +52,7 @@
         </div>
         <div class="work-list">
 
-          <a class="work-item" href="/portfolio/wrestling">
+          <a class="work-item" href="/portfolio/wrestling" data-img="/images/Photography/Wrestling/web/wrestling-05.jpg">
             <span class="work-name">Wrestling</span>
             <div class="work-meta">
               <span class="work-cat">Photography · Event</span>
@@ -105,6 +107,7 @@
   </footer>
 
   <script>
+    // Mobile nav
     var menuBtn = document.querySelector('.menu-btn');
     if (menuBtn) {
       menuBtn.addEventListener('click', function() {
@@ -118,6 +121,38 @@
         });
       });
     }
+
+    // Work-list cursor image
+    (function () {
+      var img = document.getElementById('workHoverImg');
+      if (!img) return;
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      var active = false, raf = null;
+      var targetX = 0, targetY = 0, curX = 0, curY = 0;
+      function animate() {
+        curX = lerp(curX, targetX, 0.08);
+        curY = lerp(curY, targetY, 0.08);
+        img.style.transform = 'translate(calc(' + curX + 'px - 50%), calc(' + curY + 'px - 50%))';
+        raf = requestAnimationFrame(animate);
+      }
+      document.querySelectorAll('.work-item[data-img]').forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+          img.src = item.dataset.img;
+          active = true;
+          img.style.opacity = '1';
+          if (!raf) raf = requestAnimationFrame(animate);
+        });
+        item.addEventListener('mouseleave', function() {
+          active = false;
+          img.style.opacity = '0';
+        });
+      });
+      document.addEventListener('mousemove', function(e) {
+        if (!active) return;
+        targetX = e.clientX;
+        targetY = e.clientY;
+      });
+    })();
   </script>
   <script src="/script.js"></script>
 </body>
