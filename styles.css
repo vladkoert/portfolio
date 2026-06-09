@@ -938,12 +938,16 @@ img {
 /* Project name — top-left corner inside the card */
 .folder-name {
   position: absolute;
-  top: 20px;
-  left: 24px;
+  top: 16px;
+  left: 16px;
   z-index: 10;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.01em;
+  background: var(--bg);
+  color: var(--text);
+  padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .folder-card img,
@@ -960,16 +964,9 @@ img {
 
 /* Colour variants */
 .folder-card--light { background: #e8e6e1; }
-.folder-card--light .folder-name { color: #111; }
-
 .folder-card--dark  { background: #1c1c1e; }
-.folder-card--dark  .folder-name { color: #f0f0ee; }
-
 .folder-card--warm  { background: #e2dbd2; }
-.folder-card--warm  .folder-name { color: #111; }
-
 .folder-card--mid   { background: #2a2a2e; }
-.folder-card--mid   .folder-name { color: #f0f0ee; }
 
 .ph.ph-folder {
   display: flex;
