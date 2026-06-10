@@ -1037,12 +1037,13 @@ body.nav-open .nav-overlay { display: flex; }
   grid-column: 9 / 13;
 }
 
-.brut-row-num {
+.brut-row-title {
   display: block;
-  font-size: clamp(40px, 6vw, 80px);
+  font-size: clamp(28px, 4vw, 52px);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1;
+  text-transform: uppercase;
   margin-bottom: 16px;
   color: var(--text);
 }
