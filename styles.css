@@ -1282,6 +1282,45 @@ body.nav-open .nav-overlay { display: flex; }
   text-align: right;
 }
 
+/* Oversized poster-style titles scattered through the flow */
+.wtn-big {
+  font-size: clamp(56px, 13vw, 170px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 90px 0;
+}
+
+.wtn-big--right { text-align: right; }
+.wtn-big--in { margin-left: 8%; }
+.wtn-big--out { margin-right: 6%; text-align: right; }
+
+.wtn-big--vert {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  display: inline-block;
+  font-size: clamp(40px, 9vw, 110px);
+  margin: 0;
+}
+
+.wtn-big-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 90px 0;
+  gap: 24px;
+}
+
+.wtn-big-row .wtn-ent { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+  .wtn-big { margin: 50px 0; }
+  .wtn-big-row { flex-direction: column; align-items: flex-start; gap: 40px; margin: 50px 0; }
+  .wtn-big-row .wtn-big--vert { writing-mode: horizontal-tb; transform: none; }
+}
+
 @media (max-width: 720px) {
   .wtn-title { margin-bottom: 40px; }
   .wtn-info-grid { grid-template-columns: 1fr; margin-bottom: 40px; }
