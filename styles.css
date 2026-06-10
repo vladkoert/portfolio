@@ -897,6 +897,78 @@ body.nav-open .nav-overlay { display: flex; }
   .eon-page .pj-hero .eon-corner--tr { top: 18px; }
 }
 
+/* ── 3D Studies project identity ─────────────────── */
+.td-page {
+  --td-navy:  #0c1c2e;
+  --td-teal:  #4fd9d4;
+  --td-amber: #f5a85a;
+}
+
+.td-page .pj-hero {
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, var(--td-navy) 0%, transparent 62%);
+  overflow: hidden;
+}
+
+.td-page .pj-meta-cat { color: var(--td-teal); }
+.td-page .pj-back:hover { color: var(--td-teal); border-color: var(--td-teal); }
+.td-page .pj-stmt-eyebrow { color: var(--td-amber); }
+.td-page .pj-next-name:hover { color: var(--td-teal); }
+
+.td-page .eon-corner { color: var(--td-amber); }
+.td-page .pj-hero .eon-corner--tl { top: 24px; left: var(--pad); }
+.td-page .pj-hero .eon-corner--tr { top: 24px; right: var(--pad); }
+
+@media (max-width: 720px) {
+  .td-page .pj-hero .eon-corner--tl,
+  .td-page .pj-hero .eon-corner--tr { top: 18px; }
+}
+
+/* Gallery grid */
+.td-grid {
+  column-count: 3;
+  column-gap: 24px;
+  margin-bottom: 96px;
+}
+
+.td-item {
+  break-inside: avoid;
+  margin: 0 0 24px;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, var(--td-navy) 0%, transparent 70%);
+  padding: 8px;
+}
+
+.td-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.td-item figcaption {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--dim);
+  padding: 12px 6px 4px;
+}
+
+.td-item figcaption .td-num {
+  color: var(--td-teal);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-right: 6px;
+}
+
+@media (max-width: 900px) {
+  .td-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .td-grid { column-count: 1; }
+}
+
 /* ── Next project nav ────────────────────────────── */
 .pj-next {
   display: block;
