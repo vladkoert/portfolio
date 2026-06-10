@@ -2,3 +2,7 @@
 Thumbs.db
 node_modules/
 .vercel/
+
+# Raw/original photos — only optimized images in web/ subfolders are used
+images/**/00 (*).jpg
+images/**/00 (*).JPG
