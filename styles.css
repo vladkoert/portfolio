@@ -803,6 +803,7 @@ body.nav-open .nav-overlay { display: flex; }
 /* Image blocks */
 .pj-full { width: 100%; margin-bottom: 3px; }
 .pj-full img { width: 100%; height: auto; display: block; pointer-events: none; user-select: none; }
+.pj-full video { width: 100%; height: auto; display: block; background: #000; }
 
 .pj-img img { width: 100%; height: auto; display: block; pointer-events: none; user-select: none; }
 

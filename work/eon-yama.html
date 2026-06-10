@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EON Yama — Vlad Koert</title>
+  <meta name="description" content="Visual content created for EON Yama — direction, edit and motion for the artist's music visuals." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vladkoert.com/work/eon-yama" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="EON Yama — Vlad Koert" />
+  <meta property="og:description" content="Visual content created for EON Yama — direction, edit and motion for the artist's music visuals." />
+  <meta property="og:url" content="https://vladkoert.com/work/eon-yama" />
+  <meta property="og:image" content="https://vladkoert.com/videos/eon-yama-poster.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EON Yama — Vlad Koert" />
+  <meta name="twitter:description" content="Visual content created for EON Yama — direction, edit and motion for the artist's music visuals." />
+  <meta name="twitter:image" content="https://vladkoert.com/videos/eon-yama-poster.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "EON Yama — Vlad Koert",
+    "description": "Visual content created for EON Yama — direction, edit and motion for the artist's music visuals.",
+    "thumbnailUrl": "https://vladkoert.com/videos/eon-yama-poster.jpg",
+    "contentUrl": "https://vladkoert.com/videos/eon-yama.mp4",
+    "uploadDate": "2026-01-01",
+    "url": "https://vladkoert.com/work/eon-yama",
+    "author": { "@type": "Person", "name": "Vlad Koert", "url": "https://vladkoert.com" }
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="/">Vlad Koert</a>
+      <nav class="site-nav">
+        <a href="/work" class="active">Work</a>
+        <a href="/#about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <button class="menu-btn" aria-label="Open menu">≡</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay">
+    <a href="/work">Work</a>
+    <a href="/#about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <div class="pj-hero">
+      <div class="wrap">
+        <a class="pj-back" href="/work">← All work</a>
+        <h1 class="pj-title">EON Yama</h1>
+        <div class="pj-meta">
+          <span class="pj-meta-cat">Video · Music visuals</span>
+          <p class="pj-meta-desc">Visual content created for the artist EON Yama — direction, edit and motion built around the music.</p>
+          <span class="pj-meta-date">2026<br><a href="https://soundcloud.com/eonyamavibe" target="_blank" rel="noopener">SoundCloud ↗</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 01 Visual -->
+    <div class="wrap">
+      <div class="pj-sec-hd">
+        <span class="pj-sec-num">01</span>
+        <span class="pj-sec-name">Visual</span>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div class="pj-full">
+      <video src="/videos/eon-yama.mp4" poster="/videos/eon-yama-poster.jpg" controls playsinline preload="metadata" aria-label="EON Yama visual"></video>
+    </div>
+
+    <!-- Statement -->
+    <div class="pj-statement">
+      <div class="wrap pj-stmt-grid">
+        <div>
+          <span class="pj-stmt-eyebrow">Sound &amp; image</span>
+          <h2 class="pj-stmt-heading">Visuals<br>built<br>for the<br>music.</h2>
+        </div>
+        <div class="pj-stmt-right">
+          <p>EON Yama makes music that moves between moods — the visuals follow that lead, built scene by scene to match the rhythm and feel of each track.</p>
+          <p>Direction, editing and motion came together to give the project a visual identity as distinct as its sound. Listen on <a href="https://soundcloud.com/eonyamavibe" target="_blank" rel="noopener">SoundCloud</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next project -->
+    <a class="pj-next" href="/work/wrestling">
+      <div class="wrap pj-next-inner">
+        <span class="pj-next-label">Next project</span>
+        <span class="pj-next-name">Wrestling <span class="pj-next-arrow">→</span></span>
+      </div>
+    </a>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-note">© 2026 Vlad Koert</p>
+      <a class="footer-cta" href="/contact">Start a project →</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    var menuBtn = document.querySelector('.menu-btn');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', function() {
+        document.body.classList.toggle('nav-open');
+        menuBtn.textContent = document.body.classList.contains('nav-open') ? '✕' : '≡';
+      });
+      document.querySelectorAll('.nav-overlay a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          document.body.classList.remove('nav-open');
+          menuBtn.textContent = '≡';
+        });
+      });
+    }
+  </script>
+  <script src="/script.js"></script>
+</body>
+</html>
