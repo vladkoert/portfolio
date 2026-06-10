@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/portfolio", "destination": "/work", "permanent": true },
+    { "source": "/portfolio/:path*", "destination": "/work/:path*", "permanent": true }
+  ]
 }
