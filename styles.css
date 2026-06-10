@@ -907,13 +907,14 @@ body.nav-open .nav-overlay { display: flex; }
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
   gap: 20px 24px;
   grid-template-areas:
     "meta  meta  meta  meta  meta  meta  meta  meta  meta  meta  meta  vert"
     "title title title title title title title title title title title vert"
     "desc  desc  desc  desc  .     .     imgA  imgA  imgA  imgA  .     vert"
-    "year  year  .     .     .     .     .     imgB  imgB  imgB  imgB  vert";
+    "year  year  .     .     .     .     .     imgB  imgB  imgB  imgB  vert"
+    "vid   vid   vid   vid   vid   vid   .     .     .     .     .     vert";
   padding-bottom: 80px;
 }
 
@@ -964,6 +965,37 @@ body.nav-open .nav-overlay { display: flex; }
 .brut-img--a { grid-area: imgA; aspect-ratio: 3/4; align-self: start; }
 .brut-img--b { grid-area: imgB; aspect-ratio: 3/4; align-self: end; }
 
+.brut-vid {
+  grid-area: vid;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: end;
+}
+
+.brut-vid-media {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+}
+
+.brut-vid-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.brut-vid-cap {
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  max-width: 320px;
+}
+
 .brut-year {
   grid-area: year;
   align-self: end;
@@ -999,6 +1031,7 @@ body.nav-open .nav-overlay { display: flex; }
       "desc"
       "imgA"
       "imgB"
+      "vid"
       "year";
     gap: 24px;
   }
@@ -1197,49 +1230,83 @@ body.nav-open .nav-overlay { display: flex; }
   user-select: none;
 }
 
-.wtn-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3px;
+/* Poster gallery — grouped by camera, monochrome grid */
+.wtn-poster {
+  border-top: 1px solid var(--border);
   margin-bottom: 80px;
 }
 
-.wtn-gitem--wide { grid-column: span 2; }
-
-.wtn-gimg {
-  border: 1px solid var(--border);
-  overflow: hidden;
-  aspect-ratio: 4/5;
+.wtn-pgroup {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
 }
 
-.wtn-gitem--wide .wtn-gimg { aspect-ratio: 16/9; }
+.wtn-pgroup-hd {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
 
-.wtn-gimg img {
+.wtn-pgroup-name {
+  font-size: clamp(26px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.wtn-pgroup-meta {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wtn-glow);
+}
+
+.wtn-pgrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: dense;
+  gap: 3px;
+}
+
+.wtn-pcell {
+  position: relative;
+  grid-column: span 2;
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.wtn-pcell--wide { grid-column: span 4; aspect-ratio: 2/1; }
+.wtn-pcell--half { grid-column: span 3; aspect-ratio: 4/5; }
+
+.wtn-pcell img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   pointer-events: none;
   user-select: none;
+  filter: grayscale(1) contrast(1.15);
 }
 
-.wtn-gcap { padding: 14px 2px 0; }
-
-.wtn-gtitle {
-  display: block;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+.wtn-pcell-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.55);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text);
-  margin-bottom: 4px;
-}
-
-.wtn-gcap p {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--dim);
-  margin: 0 0 8px;
 }
 
 @media (max-width: 720px) {
@@ -1250,9 +1317,10 @@ body.nav-open .nav-overlay { display: flex; }
   .wtn-hero-imgs { grid-template-columns: 1fr; }
   .wtn-hero-img { aspect-ratio: 4/3; }
 
-  .wtn-gallery { grid-template-columns: repeat(2, 1fr); }
-  .wtn-gitem--wide { grid-column: span 2; }
-  .wtn-gitem--wide .wtn-gimg { aspect-ratio: 4/5; }
+  .wtn-pgrid { grid-template-columns: repeat(4, 1fr); }
+  .wtn-pcell { grid-column: span 2; }
+  .wtn-pcell--wide { grid-column: span 4; aspect-ratio: 16/9; }
+  .wtn-pcell--half { grid-column: span 4; aspect-ratio: 16/9; }
 }
 
 /* ── Next project nav ────────────────────────────── */
