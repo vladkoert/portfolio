@@ -1250,11 +1250,26 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 .wtn-ecap {
+  margin-top: 18px;
+}
+
+.wtn-ename {
+  display: block;
+  font-size: clamp(34px, 7vw, 92px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.wtn-emeta {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
   gap: 12px;
-  margin-top: 14px;
-  padding-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid var(--border);
 }
 
@@ -1265,16 +1280,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: var(--wtn-glow);
 }
 
-.wtn-ename {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
-}
-
 .wtn-ecam {
-  margin-left: auto;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1282,44 +1288,11 @@ body.nav-open .nav-overlay { display: flex; }
   text-align: right;
 }
 
-/* Oversized poster-style titles scattered through the flow */
-.wtn-big {
-  font-size: clamp(56px, 13vw, 170px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.88;
-  text-transform: uppercase;
-  color: var(--text);
-  margin: 90px 0;
-}
-
-.wtn-big--right { text-align: right; }
-.wtn-big--in { margin-left: 8%; }
-.wtn-big--out { margin-right: 6%; text-align: right; }
-
-.wtn-big--vert {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  display: inline-block;
-  font-size: clamp(40px, 9vw, 110px);
-  margin: 0;
-}
-
-.wtn-big-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin: 90px 0;
-  gap: 24px;
-}
-
-.wtn-big-row .wtn-ent { margin-bottom: 0; }
-
-@media (max-width: 720px) {
-  .wtn-big { margin: 50px 0; }
-  .wtn-big-row { flex-direction: column; align-items: flex-start; gap: 40px; margin: 50px 0; }
-  .wtn-big-row .wtn-big--vert { writing-mode: horizontal-tb; transform: none; }
-}
+/* Vary title size + alignment for an asymmetric, poster-like rhythm */
+.wtn-ent:nth-of-type(4n+1) .wtn-ename { font-size: clamp(44px, 9vw, 130px); }
+.wtn-ent:nth-of-type(4n+2) .wtn-ename { text-align: right; }
+.wtn-ent:nth-of-type(4n+3) .wtn-ename { font-size: clamp(26px, 4.5vw, 56px); }
+.wtn-ent:nth-of-type(4n) .wtn-ename { text-align: right; font-size: clamp(40px, 8vw, 110px); }
 
 @media (max-width: 720px) {
   .wtn-title { margin-bottom: 40px; }
