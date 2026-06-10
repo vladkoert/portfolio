@@ -812,6 +812,91 @@ body.nav-open .nav-overlay { display: flex; }
   border-top: 1px solid var(--border);
 }
 
+/* ── EON Yama project identity ───────────────────── */
+.eon-page {
+  --eon-violet: #2a1145;
+  --eon-pink:   #e0249a;
+  --eon-blue:   #5b6bff;
+}
+
+.eon-page .pj-hero {
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, var(--eon-violet) 0%, transparent 62%);
+  overflow: hidden;
+}
+
+.eon-page .pj-meta-cat { color: var(--eon-pink); }
+.eon-page .pj-back:hover { color: var(--eon-pink); border-color: var(--eon-pink); }
+.eon-page .pj-stmt-eyebrow { color: var(--eon-pink); }
+.eon-page .pj-next-name:hover { color: var(--eon-blue); }
+.eon-page .pj-meta-date a { color: var(--eon-blue); }
+.eon-page .pj-meta-date a:hover { color: var(--eon-pink); }
+
+.eon-corner {
+  position: absolute;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--eon-pink);
+  pointer-events: none;
+}
+
+.eon-page .pj-hero .eon-corner--tl { top: 24px; left: var(--pad); }
+.eon-page .pj-hero .eon-corner--tr { top: 24px; right: var(--pad); }
+
+/* Video frame */
+.eon-frame {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto 96px;
+  padding: 28px;
+  border: 1px solid var(--eon-pink);
+  background: linear-gradient(160deg, var(--eon-violet) 0%, transparent 70%);
+}
+
+.eon-frame .eon-corner--tl { top: 10px; left: 10px; }
+.eon-frame .eon-corner--tr { top: 10px; right: 10px; }
+.eon-frame .eon-corner--bl { bottom: 10px; left: 10px; }
+.eon-frame .eon-corner--br { bottom: 10px; right: 10px; }
+
+.eon-frame-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 16px;
+}
+
+.eon-frame-media { border: 1px solid var(--border); }
+.eon-frame-media video { width: 100%; height: auto; display: block; background: #000; }
+
+/* SoundCloud link */
+.eon-sc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 20px 10px 16px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.eon-sc-link:hover { border-color: var(--eon-pink); color: var(--eon-pink); }
+.eon-sc-link svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+
+@media (max-width: 720px) {
+  .eon-frame { max-width: 100%; padding: 16px; margin-bottom: 64px; }
+  .eon-page .pj-hero .eon-corner--tl,
+  .eon-page .pj-hero .eon-corner--tr { top: 18px; }
+}
+
 /* ── Next project nav ────────────────────────────── */
 .pj-next {
   display: block;

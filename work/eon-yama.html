@@ -32,7 +32,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
+<body class="eon-page">
 
   <header class="site-header">
     <div class="header-inner">
@@ -56,6 +56,8 @@
 
     <!-- Hero -->
     <div class="pj-hero">
+      <span class="eon-corner eon-corner--tl">+</span>
+      <span class="eon-corner eon-corner--tr">+</span>
       <div class="wrap">
         <a class="pj-back" href="/work">← All work</a>
         <h1 class="pj-title">EON Yama</h1>
@@ -76,8 +78,20 @@
     </div>
 
     <!-- Video -->
-    <div class="pj-full">
-      <video src="/videos/eon-yama.mp4" poster="/videos/eon-yama-poster.jpg" controls playsinline preload="metadata" aria-label="EON Yama visual"></video>
+    <div class="wrap">
+      <div class="eon-frame">
+        <span class="eon-corner eon-corner--tl">+</span>
+        <span class="eon-corner eon-corner--tr">+</span>
+        <span class="eon-corner eon-corner--bl">+</span>
+        <span class="eon-corner eon-corner--br">+</span>
+        <div class="eon-frame-label">
+          <span>[ Visual — 01 ]</span>
+          <span>EON Yama</span>
+        </div>
+        <div class="eon-frame-media">
+          <video src="/videos/eon-yama.mp4" poster="/videos/eon-yama-poster.jpg" controls playsinline preload="metadata" aria-label="EON Yama visual"></video>
+        </div>
+      </div>
     </div>
 
     <!-- Statement -->
@@ -89,7 +103,11 @@
         </div>
         <div class="pj-stmt-right">
           <p>EON Yama makes music that moves between moods — the visuals follow that lead, built scene by scene to match the rhythm and feel of each track.</p>
-          <p>Direction, editing and motion came together to give the project a visual identity as distinct as its sound. Listen on <a href="https://soundcloud.com/eonyamavibe" target="_blank" rel="noopener">SoundCloud</a>.</p>
+          <p>Direction, editing and motion came together to give the project a visual identity as distinct as its sound.</p>
+          <a class="eon-sc-link" href="https://soundcloud.com/eonyamavibe" target="_blank" rel="noopener" aria-label="EON Yama on SoundCloud">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 16.5h.8V11l-.8.07v5.43zM3.4 17h.8v-7.6l-.8.08V17zM5.3 17h.8V8.6l-.8.1V17zM7.2 17H8V9.6l-.8.06V17zM9.1 17h.85V6.6c-.3-.05-.57-.07-.85-.04V17zM11.05 17h.9V6.2c-.3-.1-.6-.16-.9-.18V17zM13 5.4v11.6h.95V5.55c-.3-.07-.62-.12-.95-.15zM14.95 5.7V17h.95V6.05a4.9 4.9 0 0 0-.95-.35zM16.9 6.2V17h.95V6.9a4.6 4.6 0 0 0-.95-.7zM21.7 11.4a3.2 3.2 0 0 0-1.25.25 5.7 5.7 0 0 0-5.65-4.9c-.45 0-.9.05-1.3.15v10.1h8.2a2.8 2.8 0 0 0 0-5.6z"/></svg>
+            <span>Listen on SoundCloud</span>
+          </a>
         </div>
       </div>
     </div>
