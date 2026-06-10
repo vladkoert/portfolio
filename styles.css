@@ -898,33 +898,117 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 /* ── 3D Studies project identity ─────────────────── */
-.td-page {
-  --td-navy:  #0c1c2e;
-  --td-teal:  #4fd9d4;
-  --td-amber: #f5a85a;
+/* Brutalist poster: pure black/white, oversized type, asymmetric grid */
+.td-page .pj-hero { padding-top: calc(52px + 40px); }
+.td-page .pj-meta,
+.td-page .pj-title { display: none; }
+
+.brut-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto auto;
+  gap: 20px 24px;
+  grid-template-areas:
+    "meta  meta  meta  meta  meta  meta  meta  meta  meta  meta  meta  vert"
+    "title title title title title title title title title title title vert"
+    "desc  desc  desc  desc  .     .     imgA  imgA  imgA  imgA  .     vert"
+    "year  year  .     .     .     .     .     imgB  imgB  imgB  imgB  vert";
+  padding-bottom: 80px;
 }
 
-.td-page .pj-hero {
-  position: relative;
-  background: radial-gradient(circle at 50% 0%, var(--td-navy) 0%, transparent 62%);
+.brut-meta {
+  grid-area: meta;
+  text-align: right;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.brut-title {
+  grid-area: title;
+  font-size: clamp(90px, 17vw, 240px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.brut-desc {
+  grid-area: desc;
+  align-self: start;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text);
+  max-width: 480px;
+}
+
+.brut-img {
+  border: 1px solid var(--border);
   overflow: hidden;
 }
 
-.td-page .pj-meta-cat { color: var(--td-teal); }
-.td-page .pj-back:hover { color: var(--td-teal); border-color: var(--td-teal); }
-.td-page .pj-stmt-eyebrow { color: var(--td-amber); }
-.td-page .pj-next-name:hover { color: var(--td-teal); }
-
-.td-page .eon-corner { color: var(--td-amber); }
-.td-page .pj-hero .eon-corner--tl { top: 24px; left: var(--pad); }
-.td-page .pj-hero .eon-corner--tr { top: 24px; right: var(--pad); }
-
-@media (max-width: 720px) {
-  .td-page .pj-hero .eon-corner--tl,
-  .td-page .pj-hero .eon-corner--tr { top: 18px; }
+.brut-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.05);
+  pointer-events: none;
+  user-select: none;
 }
 
-/* Gallery grid */
+.brut-img--a { grid-area: imgA; aspect-ratio: 4/3; align-self: start; }
+.brut-img--b { grid-area: imgB; aspect-ratio: 4/3; align-self: end; }
+
+.brut-year {
+  grid-area: year;
+  align-self: end;
+  font-size: clamp(48px, 9vw, 110px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.brut-vert {
+  grid-area: vert;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: clamp(40px, 8vw, 130px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  border-left: 1px solid var(--border);
+  padding-left: 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .brut-hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "meta"
+      "title"
+      "desc"
+      "imgA"
+      "imgB"
+      "year";
+    gap: 24px;
+  }
+  .brut-vert { display: none; }
+  .brut-meta { text-align: left; }
+  .brut-img--a, .brut-img--b { align-self: stretch; }
+}
+
+/* Gallery grid — monochrome */
 .td-grid {
   column-count: 3;
   column-gap: 24px;
@@ -935,14 +1019,13 @@ body.nav-open .nav-overlay { display: flex; }
   break-inside: avoid;
   margin: 0 0 24px;
   border: 1px solid var(--border);
-  background: linear-gradient(160deg, var(--td-navy) 0%, transparent 70%);
-  padding: 8px;
 }
 
 .td-item img {
   width: 100%;
   height: auto;
   display: block;
+  filter: grayscale(1) contrast(1.05);
   pointer-events: none;
   user-select: none;
 }
@@ -951,12 +1034,13 @@ body.nav-open .nav-overlay { display: flex; }
   font-size: 12px;
   line-height: 1.5;
   color: var(--dim);
-  padding: 12px 6px 4px;
+  padding: 12px 12px 14px;
+  border-top: 1px solid var(--border);
 }
 
 .td-item figcaption .td-num {
-  color: var(--td-teal);
-  font-weight: 500;
+  color: var(--text);
+  font-weight: 700;
   letter-spacing: 0.08em;
   margin-right: 6px;
 }
