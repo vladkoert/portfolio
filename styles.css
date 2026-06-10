@@ -961,8 +961,8 @@ body.nav-open .nav-overlay { display: flex; }
   user-select: none;
 }
 
-.brut-img--a { grid-area: imgA; aspect-ratio: 4/3; align-self: start; }
-.brut-img--b { grid-area: imgB; aspect-ratio: 4/3; align-self: end; }
+.brut-img--a { grid-area: imgA; aspect-ratio: 3/4; align-self: start; }
+.brut-img--b { grid-area: imgB; aspect-ratio: 3/4; align-self: end; }
 
 .brut-year {
   grid-area: year;
@@ -1079,8 +1079,8 @@ body.nav-open .nav-overlay { display: flex; }
 
 /* ── Wandering Through The Night project identity ── */
 .wtn-page {
-  --wtn-glow: #ffd84d;
-  --wtn-cyan: #4dd9ff;
+  --wtn-glow: #4a7dff;
+  --wtn-cyan: #ff4ddc;
 }
 
 .wtn-page::before {
