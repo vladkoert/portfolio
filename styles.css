@@ -1025,7 +1025,8 @@ body.nav-open .nav-overlay { display: flex; }
   overflow: hidden;
 }
 
-.brut-row-img img {
+.brut-row-img img,
+.brut-row-img video {
   width: 100%;
   height: auto;
   display: block;
@@ -1196,6 +1197,51 @@ body.nav-open .nav-overlay { display: flex; }
   user-select: none;
 }
 
+.wtn-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin-bottom: 80px;
+}
+
+.wtn-gitem--wide { grid-column: span 2; }
+
+.wtn-gimg {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+
+.wtn-gitem--wide .wtn-gimg { aspect-ratio: 16/9; }
+
+.wtn-gimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.wtn-gcap { padding: 14px 2px 0; }
+
+.wtn-gtitle {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.wtn-gcap p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--dim);
+  margin: 0 0 8px;
+}
+
 @media (max-width: 720px) {
   .wtn-title { margin-bottom: 40px; }
   .wtn-info-grid { grid-template-columns: 1fr; margin-bottom: 40px; }
@@ -1203,6 +1249,10 @@ body.nav-open .nav-overlay { display: flex; }
   .wtn-info:first-child { border-top: none; }
   .wtn-hero-imgs { grid-template-columns: 1fr; }
   .wtn-hero-img { aspect-ratio: 4/3; }
+
+  .wtn-gallery { grid-template-columns: repeat(2, 1fr); }
+  .wtn-gitem--wide { grid-column: span 2; }
+  .wtn-gitem--wide .wtn-gimg { aspect-ratio: 4/5; }
 }
 
 /* ── Next project nav ────────────────────────────── */
