@@ -722,6 +722,62 @@ body.nav-open .nav-overlay { display: flex; }
   margin-bottom: 28px;
 }
 
+/* ── Custom cursor ──────────────────────────────── */
+@media (pointer: fine) {
+  body, a, button, .work-item, .pj-arr {
+    cursor: none;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease, width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--text);
+  }
+
+  .cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+  }
+
+  body.cursor-ready .cursor-dot,
+  body.cursor-ready .cursor-ring {
+    opacity: 1;
+  }
+
+  body.cursor-hover .cursor-dot {
+    opacity: 0;
+  }
+
+  body.cursor-hover .cursor-ring {
+    width: 64px;
+    height: 64px;
+    border-color: var(--text);
+  }
+
+  body.cursor-text .cursor-dot,
+  body.cursor-text .cursor-ring {
+    opacity: 0;
+  }
+
+  body.cursor-text, body.cursor-text input, body.cursor-text textarea,
+  input, textarea {
+    cursor: text;
+  }
+}
+
 .pj-stmt-heading {
   font-size: clamp(52px, 7.5vw, 96px);
   font-weight: 800;

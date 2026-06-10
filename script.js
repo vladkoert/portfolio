@@ -78,12 +78,6 @@
     "pf-slide", "pf-dots", "pf-prev", "pf-next", 4000
   );
 
-  // Project detail carousel (if present)
-  initCarousel(
-    document.querySelector(".project-carousel"),
-    "carousel-slide", "carousel-dots", "prev", "next", 4000
-  );
-
   // Contact form
   var form = document.querySelector(".contact-form");
   if (form) {
@@ -172,4 +166,71 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") lbClose(); });
   }
 
+})();
+
+// Custom cursor — dot + lagging ring, expands on hover
+(function () {
+  if (!window.matchMedia || !window.matchMedia("(pointer: fine)").matches) return;
+
+  var dot = document.createElement("div");
+  dot.className = "cursor-dot";
+  var ring = document.createElement("div");
+  ring.className = "cursor-ring";
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  var mouseX = 0, mouseY = 0;
+  var ringX  = 0, ringY  = 0;
+  var started = false;
+
+  function setPos(el, x, y) {
+    el.style.transform = "translate(" + x + "px, " + y + "px) translate(-50%, -50%)";
+  }
+
+  function animate() {
+    ringX = lerp(ringX, mouseX, 0.16);
+    ringY = lerp(ringY, mouseY, 0.16);
+    setPos(ring, ringX, ringY);
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  document.addEventListener("mousemove", function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    setPos(dot, mouseX, mouseY);
+    if (!started) {
+      started = true;
+      ringX = mouseX; ringY = mouseY;
+      document.body.classList.add("cursor-ready");
+    }
+  });
+
+  document.addEventListener("mouseleave", function () {
+    document.body.classList.remove("cursor-ready");
+  });
+  document.addEventListener("mouseenter", function () {
+    if (started) document.body.classList.add("cursor-ready");
+  });
+
+  var hoverSelector = "a, button, .work-item, .pj-arr";
+  var textSelector  = "input, textarea";
+
+  document.addEventListener("mouseover", function (e) {
+    if (e.target.closest(textSelector)) {
+      document.body.classList.add("cursor-text");
+    } else if (e.target.closest(hoverSelector)) {
+      document.body.classList.add("cursor-hover");
+    }
+  });
+
+  document.addEventListener("mouseout", function (e) {
+    if (e.target.closest(textSelector)) {
+      document.body.classList.remove("cursor-text");
+    } else if (e.target.closest(hoverSelector)) {
+      document.body.classList.remove("cursor-hover");
+    }
+  });
 })();
