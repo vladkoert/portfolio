@@ -320,9 +320,7 @@ body.nav-open .nav-overlay { display: flex; }
   transition: opacity 0.2s;
 }
 
-.work-item:hover { opacity: 0.45; }
 .work-item--soon { cursor: default; opacity: 0.35; }
-.work-item--soon:hover { opacity: 0.35; }
 
 .work-name {
   font-size: clamp(28px, 4vw, 56px);
