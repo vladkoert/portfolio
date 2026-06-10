@@ -957,7 +957,6 @@ body.nav-open .nav-overlay { display: flex; }
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(1) contrast(1.05);
   pointer-events: none;
   user-select: none;
 }
@@ -1008,49 +1007,73 @@ body.nav-open .nav-overlay { display: flex; }
   .brut-img--a, .brut-img--b { align-self: stretch; }
 }
 
-/* Gallery grid — monochrome */
-.td-grid {
-  column-count: 3;
-  column-gap: 24px;
-  margin-bottom: 96px;
+/* Gallery rows — asymmetric, alternating sides */
+.brut-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
 }
 
-.td-item {
-  break-inside: avoid;
-  margin: 0 0 24px;
+.brut-row:first-child { border-top: 1px solid var(--border); }
+
+.brut-row-img {
+  grid-column: 1 / 9;
   border: 1px solid var(--border);
+  overflow: hidden;
 }
 
-.td-item img {
+.brut-row-img img {
   width: 100%;
   height: auto;
   display: block;
-  filter: grayscale(1) contrast(1.05);
   pointer-events: none;
   user-select: none;
 }
 
-.td-item figcaption {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--dim);
-  padding: 12px 12px 14px;
-  border-top: 1px solid var(--border);
+.brut-row-cap {
+  grid-column: 9 / 13;
 }
 
-.td-item figcaption .td-num {
+.brut-row-num {
+  display: block;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 16px;
   color: var(--text);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin-right: 6px;
 }
 
-@media (max-width: 900px) {
-  .td-grid { column-count: 2; }
+.brut-row-cap p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--dim);
+  max-width: 320px;
 }
 
-@media (max-width: 600px) {
-  .td-grid { column-count: 1; }
+.brut-row--alt .brut-row-img { grid-column: 5 / 13; order: 2; }
+.brut-row--alt .brut-row-cap { grid-column: 1 / 5; order: 1; }
+
+@media (max-width: 860px) {
+  .brut-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 0;
+  }
+  .brut-row-img,
+  .brut-row--alt .brut-row-img {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+  .brut-row-cap,
+  .brut-row--alt .brut-row-cap {
+    grid-column: 1 / -1;
+    order: 2;
+  }
+  .brut-row-cap p { max-width: none; }
 }
 
 /* ── Next project nav ────────────────────────────── */
