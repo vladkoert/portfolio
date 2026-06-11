@@ -1288,6 +1288,12 @@ body.nav-open .nav-overlay { display: flex; }
   }
 }
 
+/* ── Portraits project identity ── */
+.prt-page {
+  --wtn-glow: #ff3b30;
+  --wtn-cyan: #ffb13d;
+}
+
 /* ── Next project nav ────────────────────────────── */
 .pj-next {
   display: block;

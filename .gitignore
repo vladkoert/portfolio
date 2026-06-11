@@ -6,3 +6,5 @@ node_modules/
 # Raw/original photos — only optimized images in web/ subfolders are used
 images/**/00 (*).jpg
 images/**/00 (*).JPG
+images/Photography/Portraits/*.jpg
+images/Photography/Portraits/*.JPG
