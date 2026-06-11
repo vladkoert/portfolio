@@ -897,6 +897,12 @@ body.nav-open .nav-overlay { display: flex; }
   .eon-page .pj-hero .eon-corner--tr { top: 18px; }
 }
 
+/* ── 3D Studies project identity ── */
+.td-page {
+  --wtn-glow: var(--text);
+  --wtn-cyan: var(--dim);
+}
+
 /* ── Wandering Through The Night project identity ── */
 .wtn-page {
   --wtn-glow: #4a7dff;
