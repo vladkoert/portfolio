@@ -1241,8 +1241,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 .wtn-img img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
   pointer-events: none;
   user-select: none;
@@ -1260,12 +1259,7 @@ body.nav-open .nav-overlay { display: flex; }
 .wtn-w-75 { flex: 0 0 75%; }
 .wtn-w-100 { flex: 0 0 100%; }
 
-/* aspect ratios */
-.wtn-ar-square { aspect-ratio: 1/1; }
-.wtn-ar-portrait { aspect-ratio: 3/4; }
-.wtn-ar-tall { aspect-ratio: 2/3; }
-.wtn-ar-land { aspect-ratio: 4/3; }
-.wtn-ar-wide { aspect-ratio: 16/9; }
+/* aspect ratios — natural image ratio preserved, sizing via width only */
 
 /* vertical stagger */
 .wtn-offset-down { margin-top: 64px; }
@@ -1288,7 +1282,6 @@ body.nav-open .nav-overlay { display: flex; }
   .wtn-grp > .wtn-img {
     flex: 0 0 auto !important;
     width: 100%;
-    aspect-ratio: 4/5;
     margin-top: 0 !important;
   }
 }
