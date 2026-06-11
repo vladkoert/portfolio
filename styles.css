@@ -1243,7 +1243,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 .wtn-row-text {
   flex-shrink: 0;
-  text-align: right;
+  text-align: left;
 }
 
 .wtn-row-name {
@@ -1257,7 +1257,7 @@ body.nav-open .nav-overlay { display: flex; }
 .wtn-row-meta {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 3px;
   margin-top: 12px;
 }
@@ -1277,7 +1277,7 @@ body.nav-open .nav-overlay { display: flex; }
   .wtn-info { border-left: none; border-top: 1px solid var(--border); padding: 20px 0; }
   .wtn-info:first-child { border-top: none; }
 
-  .wtn-row { flex-direction: column; align-items: flex-end; gap: 16px; padding: 28px 0; }
+  .wtn-row { flex-direction: column; align-items: flex-start; gap: 16px; padding: 28px 0; }
   .wtn-row-img { width: 100%; }
 }
 
