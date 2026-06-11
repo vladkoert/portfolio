@@ -1434,10 +1434,10 @@ body.nav-open .nav-overlay { display: flex; }
   color: rgba(245, 245, 245, 0.6);
   border-bottom-color: transparent;
 }
-.nuvo-page .pj-back:hover { color: var(--nuvo-green); border-color: var(--nuvo-green); }
-.nuvo-page .pj-sec-num { color: var(--nuvo-green); }
+.nuvo-page .pj-back:hover { color: var(--nuvo-red); border-color: var(--nuvo-red); }
+.nuvo-page .pj-sec-num { color: var(--nuvo-red); }
 .nuvo-page .pj-stmt-eyebrow { color: var(--nuvo-red); }
-.nuvo-page .pj-next-name:hover { color: var(--nuvo-green); }
+.nuvo-page .pj-next-name:hover { color: var(--nuvo-red); }
 
 .nuvo-tags {
   display: flex;
@@ -1458,8 +1458,8 @@ body.nav-open .nav-overlay { display: flex; }
 
 .nuvo-tag--accent {
   color: #0a0a0a;
-  background: var(--nuvo-green);
-  border-color: var(--nuvo-green);
+  background: var(--nuvo-red);
+  border-color: var(--nuvo-red);
 }
 
 .nuvo-title {
@@ -1475,7 +1475,7 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 .nuvo-title span {
-  background: linear-gradient(180deg, var(--nuvo-green), var(--nuvo-red));
+  background: linear-gradient(180deg, var(--nuvo-red), var(--nuvo-green));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1502,13 +1502,14 @@ body.nav-open .nav-overlay { display: flex; }
   border-top: 1px dashed rgba(245, 245, 245, 0.2);
 }
 
-.nuvo-venue strong { color: var(--nuvo-green); }
+.nuvo-venue strong { color: var(--nuvo-red); }
 
-/* Gallery — Instagram post grid, green posts first then red */
+/* Gallery — Instagram post grid, red designs first then green */
 .nuvo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 220px));
+  justify-content: center;
+  gap: 24px;
   padding: 32px 0 80px;
 }
 
@@ -1549,7 +1550,7 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 @media (max-width: 720px) {
-  .nuvo-grid { grid-template-columns: 1fr; gap: 24px; padding: 16px 0 56px; }
+  .nuvo-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 16px; padding: 16px 0 56px; }
 }
 
 /* ── Next project nav ────────────────────────────── */
