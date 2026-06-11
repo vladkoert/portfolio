@@ -903,6 +903,10 @@ body.nav-open .nav-overlay { display: flex; }
   --wtn-cyan: var(--dim);
 }
 
+.td-page .wtn-title {
+  text-shadow: none;
+}
+
 .td-title-row {
   display: flex;
   align-items: stretch;
