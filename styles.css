@@ -1279,16 +1279,17 @@ body.nav-open .nav-overlay { display: flex; }
 
 /* ── Laboriver project identity ── */
 .lbr-page {
-  --lbr-coral: #ff6f5e;
+  --lbr-purple: #6f6cc9;
+  --lbr-blue: #5cd9f0;
 }
 
 .lbr-page .pj-meta,
 .lbr-page .pj-title { display: none; }
 
-.lbr-page .pj-back:hover { color: var(--lbr-coral); border-color: var(--lbr-coral); }
-.lbr-page .pj-sec-num { color: var(--lbr-coral); }
-.lbr-page .pj-stmt-eyebrow { color: var(--lbr-coral); }
-.lbr-page .pj-next-name:hover { color: var(--lbr-coral); }
+.lbr-page .pj-back:hover { color: var(--lbr-blue); border-color: var(--lbr-blue); }
+.lbr-page .pj-sec-num { color: var(--lbr-purple); }
+.lbr-page .pj-stmt-eyebrow { color: var(--lbr-purple); }
+.lbr-page .pj-next-name:hover { color: var(--lbr-blue); }
 
 .lbr-tags {
   display: flex;
@@ -1302,17 +1303,17 @@ body.nav-open .nav-overlay { display: flex; }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--lbr-coral);
+  color: var(--lbr-purple);
   border: 1px solid currentColor;
   padding: 6px 14px;
 }
 
 /* Hero — a giant "card" with a dashed border, like the cards themselves */
 .lbr-card {
-  border: 2px dashed var(--lbr-coral);
+  border: 2px dashed var(--lbr-purple);
   border-radius: 24px;
   padding: clamp(32px, 6vw, 72px);
-  background: linear-gradient(160deg, rgba(255, 111, 94, 0.08), transparent 60%);
+  background: linear-gradient(160deg, rgba(111, 108, 201, 0.12), rgba(92, 217, 240, 0.06) 45%, transparent 70%);
 }
 
 .lbr-title {
@@ -1407,7 +1408,7 @@ body.nav-open .nav-overlay { display: flex; }
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--lbr-coral);
+  color: var(--lbr-blue);
   margin: 0;
 }
 
