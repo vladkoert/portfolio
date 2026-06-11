@@ -1251,9 +1251,11 @@ body.nav-open .nav-overlay { display: flex; }
 .wtn-w-25 { flex: 0 0 25%; }
 .wtn-w-30 { flex: 0 0 30%; }
 .wtn-w-33 { flex: 0 0 33.333%; }
+.wtn-w-35 { flex: 0 0 35%; }
 .wtn-w-40 { flex: 0 0 40%; }
 .wtn-w-45 { flex: 0 0 45%; }
 .wtn-w-50 { flex: 0 0 50%; }
+.wtn-w-55 { flex: 0 0 55%; }
 .wtn-w-60 { flex: 0 0 60%; }
 .wtn-w-66 { flex: 0 0 66.666%; }
 .wtn-w-75 { flex: 0 0 75%; }
