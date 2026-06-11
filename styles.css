@@ -1419,6 +1419,139 @@ body.nav-open .nav-overlay { display: flex; }
   .lbr-products { grid-template-columns: 1fr; gap: 40px; padding: 16px 0 56px; }
 }
 
+/* ── Nuvo project identity ── */
+.nuvo-page {
+  --nuvo-green: #8aff6e;
+  --nuvo-red: #ff3b30;
+}
+
+.nuvo-page .pj-hero {
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
+.nuvo-page .pj-back {
+  color: rgba(245, 245, 245, 0.6);
+  border-bottom-color: transparent;
+}
+.nuvo-page .pj-back:hover { color: var(--nuvo-green); border-color: var(--nuvo-green); }
+.nuvo-page .pj-sec-num { color: var(--nuvo-green); }
+.nuvo-page .pj-stmt-eyebrow { color: var(--nuvo-red); }
+.nuvo-page .pj-next-name:hover { color: var(--nuvo-green); }
+
+.nuvo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.nuvo-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.85);
+  border: 1px solid rgba(245, 245, 245, 0.25);
+  padding: 6px 14px;
+}
+
+.nuvo-tag--accent {
+  color: #0a0a0a;
+  background: var(--nuvo-green);
+  border-color: var(--nuvo-green);
+}
+
+.nuvo-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.05em;
+  font-size: clamp(64px, 16vw, 220px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+.nuvo-title span {
+  background: linear-gradient(180deg, var(--nuvo-green), var(--nuvo-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nuvo-desc {
+  max-width: 560px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(245, 245, 245, 0.65);
+  margin: 0 0 40px;
+}
+
+.nuvo-venue {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.45);
+  padding-top: 24px;
+  border-top: 1px dashed rgba(245, 245, 245, 0.2);
+}
+
+.nuvo-venue strong { color: var(--nuvo-green); }
+
+/* Gallery — Instagram post grid, green posts first then red */
+.nuvo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding: 32px 0 80px;
+}
+
+.nuvo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nuvo-card-img {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  aspect-ratio: 9 / 16;
+}
+
+.nuvo-card-img img,
+.nuvo-card-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nuvo-card-cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.nuvo-card-cap strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .nuvo-grid { grid-template-columns: 1fr; gap: 24px; padding: 16px 0 56px; }
+}
+
 /* ── Next project nav ────────────────────────────── */
 .pj-next {
   display: block;
