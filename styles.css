@@ -1118,17 +1118,12 @@ body.nav-open .nav-overlay { display: flex; }
   .wtn-gallery { padding: 40px 0; }
 
   .wtn-grp {
-    flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 40px;
   }
 
-  .wtn-grp > .wtn-img,
-  .wtn-grp > .wtn-vid {
-    flex: 0 0 auto !important;
-    width: 100%;
-    margin-top: 0 !important;
-  }
+  .wtn-offset-down { margin-top: 32px; }
+  .wtn-offset-up { margin-top: -32px; }
 }
 
 /* ── Portraits project identity ── */
