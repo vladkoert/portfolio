@@ -1114,7 +1114,7 @@ body.nav-open .nav-overlay { display: flex; }
 /* ── Wandering Through The Night project identity ── */
 .wtn-page {
   --wtn-glow: #4a7dff;
-  --wtn-cyan: #ff4ddc;
+  --wtn-cyan: #3df2ff;
 }
 
 .wtn-page::before {
@@ -1290,8 +1290,8 @@ body.nav-open .nav-overlay { display: flex; }
 
 /* ── Portraits project identity ── */
 .prt-page {
-  --wtn-glow: #ff3b30;
-  --wtn-cyan: #ffb13d;
+  --wtn-glow: var(--text);
+  --wtn-cyan: var(--dim);
 }
 
 /* ── Portraits hero — unique two-column layout ── */
@@ -1313,21 +1313,6 @@ body.nav-open .nav-overlay { display: flex; }
   position: relative;
 }
 
-.prt-hero-left::before {
-  content: "";
-  position: absolute;
-  left: -10%;
-  top: -30%;
-  width: 70%;
-  height: 160%;
-  background: radial-gradient(circle, var(--wtn-glow) 0%, transparent 65%);
-  opacity: 0.25;
-  filter: blur(60px);
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: -1;
-}
-
 .prt-title {
   position: relative;
   font-size: clamp(56px, 12vw, 170px);
@@ -1336,7 +1321,6 @@ body.nav-open .nav-overlay { display: flex; }
   line-height: 0.95;
   text-transform: uppercase;
   color: var(--text);
-  text-shadow: 0 0 30px rgba(255,59,48,0.45), 0 0 70px rgba(255,177,61,0.25);
   margin: 0;
 }
 
