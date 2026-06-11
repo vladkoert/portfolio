@@ -1501,13 +1501,31 @@ body.nav-open .nav-overlay { display: flex; }
 
 .nuvo-venue strong { color: var(--nuvo-red); }
 
-/* Gallery — Instagram post grid, red designs first then green */
+/* Set divider — separates the red and green poster sets */
+.nuvo-set-hd {
+  padding-top: 40px;
+}
+
+.nuvo-set-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 2px solid currentColor;
+}
+
+.nuvo-set-label--red { color: var(--nuvo-red); }
+.nuvo-set-label--green { color: var(--nuvo-green); }
+
+/* Gallery — Instagram post grid, one set (red or green) at a time */
 .nuvo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 340px));
   justify-content: center;
   gap: 32px;
-  padding: 32px 0 80px;
+  padding: 24px 0 64px;
 }
 
 .nuvo-card {
@@ -1532,9 +1550,6 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 .nuvo-card-cap {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
