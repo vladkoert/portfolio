@@ -1516,3 +1516,44 @@ body.nav-open .nav-overlay { display: flex; }
 
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
+
+/* ── Easter egg: Konami code chromatic-aberration flash ── */
+.egg-rgb {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.egg-rgb span {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.egg-rgb span:nth-child(1) {
+  background: #4a7dff;
+  animation: egg-rgb-left 0.7s ease-out forwards;
+}
+
+.egg-rgb span:nth-child(2) {
+  background: #3df2ff;
+  animation: egg-rgb-right 0.7s ease-out forwards;
+}
+
+@keyframes egg-rgb-left {
+  0%   { opacity: 0.55; transform: translateX(-12px); }
+  50%  { opacity: 0.3;  transform: translateX(8px); }
+  100% { opacity: 0;    transform: translateX(0); }
+}
+
+@keyframes egg-rgb-right {
+  0%   { opacity: 0.55; transform: translateX(12px); }
+  50%  { opacity: 0.3;  transform: translateX(-8px); }
+  100% { opacity: 0;    transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .egg-rgb { display: none; }
+}
