@@ -1081,6 +1081,10 @@ body.nav-open .nav-overlay { display: flex; }
   min-width: 0;
 }
 
+.wtn-vid .wtn-img {
+  border: 1px solid var(--border);
+}
+
 .wtn-vid-cap {
   font-size: 11px;
   line-height: 1.6;
@@ -1118,9 +1122,31 @@ body.nav-open .nav-overlay { display: flex; }
   .wtn-gallery { padding: 40px 0; }
 
   .wtn-grp {
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 40px;
   }
+
+  .wtn-img,
+  .wtn-vid {
+    flex-shrink: 1;
+    min-width: 140px;
+  }
+
+  .wtn-w-25,
+  .wtn-w-30,
+  .wtn-w-33,
+  .wtn-w-35 { flex-basis: 46%; }
+
+  .wtn-w-40,
+  .wtn-w-45 { flex-basis: 60%; }
+
+  .wtn-w-50,
+  .wtn-w-55 { flex-basis: 75%; }
+
+  .wtn-w-60,
+  .wtn-w-66,
+  .wtn-w-75 { flex-basis: 90%; }
 
   .wtn-offset-down { margin-top: 32px; }
   .wtn-offset-up { margin-top: -32px; }
