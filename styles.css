@@ -1034,6 +1034,21 @@ body.nav-open .nav-overlay { display: flex; }
   user-select: none;
 }
 
+.wtn-vid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.wtn-vid-cap {
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  max-width: 320px;
+}
+
 /* widths */
 .wtn-w-25 { flex: 0 0 25%; }
 .wtn-w-30 { flex: 0 0 30%; }
@@ -1068,7 +1083,8 @@ body.nav-open .nav-overlay { display: flex; }
     margin-bottom: 40px;
   }
 
-  .wtn-grp > .wtn-img {
+  .wtn-grp > .wtn-img,
+  .wtn-grp > .wtn-vid {
     flex: 0 0 auto !important;
     width: 100%;
     margin-top: 0 !important;
