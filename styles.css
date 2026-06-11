@@ -903,6 +903,36 @@ body.nav-open .nav-overlay { display: flex; }
   --wtn-cyan: var(--dim);
 }
 
+.td-title-row {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.td-title-row .wtn-title { margin-bottom: 0; }
+
+.td-vert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: clamp(20px, 3.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-left: 1px solid var(--border);
+  padding-left: 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .td-title-row { gap: 16px; margin-bottom: 40px; }
+  .td-vert { padding-left: 12px; }
+}
+
 /* ── Wandering Through The Night project identity ── */
 .wtn-page {
   --wtn-glow: #4a7dff;
