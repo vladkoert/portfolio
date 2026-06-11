@@ -1277,6 +1277,147 @@ body.nav-open .nav-overlay { display: flex; }
   .prt-info-num { font-size: 22px; }
 }
 
+/* ── Laboriver project identity ── */
+.lbr-page {
+  --lbr-coral: #ff6f5e;
+}
+
+.lbr-page .pj-meta,
+.lbr-page .pj-title { display: none; }
+
+.lbr-page .pj-back:hover { color: var(--lbr-coral); border-color: var(--lbr-coral); }
+.lbr-page .pj-sec-num { color: var(--lbr-coral); }
+.lbr-page .pj-stmt-eyebrow { color: var(--lbr-coral); }
+.lbr-page .pj-next-name:hover { color: var(--lbr-coral); }
+
+.lbr-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.lbr-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lbr-coral);
+  border: 1px solid currentColor;
+  padding: 6px 14px;
+}
+
+/* Hero — a giant "card" with a dashed border, like the cards themselves */
+.lbr-card {
+  border: 2px dashed var(--lbr-coral);
+  border-radius: 24px;
+  padding: clamp(32px, 6vw, 72px);
+  background: linear-gradient(160deg, rgba(255, 111, 94, 0.08), transparent 60%);
+}
+
+.lbr-title {
+  font-size: clamp(60px, 14vw, 200px);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 0 24px;
+}
+
+.lbr-desc {
+  max-width: 560px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--dim);
+  margin: 0;
+}
+
+.lbr-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--border);
+}
+
+.lbr-swatches { display: flex; gap: 8px; }
+
+.lbr-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.lbr-contact {
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  text-align: right;
+}
+
+/* Product gallery — front/back card pairs */
+.lbr-products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px 32px;
+  padding: 32px 0 80px;
+}
+
+.lbr-product-pair {
+  display: flex;
+  gap: 8px;
+}
+
+.lbr-img {
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.lbr-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.lbr-product--single .lbr-img {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.lbr-product-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 16px 0 4px;
+}
+
+.lbr-product-meta {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lbr-coral);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .lbr-card { border-radius: 16px; }
+  .lbr-card-foot { align-items: flex-start; }
+  .lbr-contact { text-align: left; }
+  .lbr-products { grid-template-columns: 1fr; gap: 40px; padding: 16px 0 56px; }
+}
+
 /* ── Next project nav ────────────────────────────── */
 .pj-next {
   display: block;
