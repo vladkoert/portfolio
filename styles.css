@@ -351,7 +351,8 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 .see-all {
-  padding: 24px 0;
+  display: block;
+  padding: 24px 0 56px;
   font-size: 13px;
   color: var(--dim);
   letter-spacing: 0.04em;
