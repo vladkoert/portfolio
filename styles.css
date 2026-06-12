@@ -1931,3 +1931,98 @@ body.nav-open .nav-overlay { display: flex; }
 @media (prefers-reduced-motion: reduce) {
   .egg-rgb { display: none; }
 }
+
+/* ── Easter egg: Konami code glitch + shake ── */
+@keyframes egg-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20%  { transform: translate(-4px, 2px); }
+  40%  { transform: translate(4px, -2px); }
+  60%  { transform: translate(-3px, 1px); }
+  80%  { transform: translate(3px, -1px); }
+}
+
+.egg-shake { animation: egg-shake 0.4s ease-in-out; }
+
+@keyframes egg-glitch-anim {
+  0%   { clip-path: inset(0 0 0 0);    transform: translate(0); opacity: 1; }
+  10%  { clip-path: inset(10% 0 60% 0); transform: translate(-6px, 0); }
+  20%  { clip-path: inset(50% 0 20% 0); transform: translate(6px, 0); }
+  30%  { clip-path: inset(20% 0 50% 0); transform: translate(-4px, 0); }
+  40%  { clip-path: inset(70% 0 5% 0);  transform: translate(4px, 0); }
+  50%  { clip-path: inset(5% 0 80% 0);  transform: translate(-3px, 0); }
+  60%  { clip-path: inset(40% 0 30% 0); transform: translate(5px, 0); }
+  70%  { clip-path: inset(0 0 0 0);     transform: translate(0); }
+  100% { clip-path: inset(0 0 0 0);     transform: translate(0); opacity: 1; }
+}
+
+.egg-glitch {
+  position: relative;
+  animation: egg-glitch-anim 0.6s steps(1, end) 2;
+}
+
+.egg-glitch::before,
+.egg-glitch::after {
+  content: attr(data-egg-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.egg-glitch::before {
+  color: #4a7dff;
+  mix-blend-mode: screen;
+  animation: egg-glitch-anim 0.6s steps(1, end) 2 reverse;
+}
+
+.egg-glitch::after {
+  color: #3df2ff;
+  mix-blend-mode: screen;
+  animation: egg-glitch-anim 0.5s steps(1, end) 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .egg-shake, .egg-glitch, .egg-glitch::before, .egg-glitch::after { animation: none; }
+}
+
+/* ── Easter egg: mini-game overlay ── */
+.egg-game-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(10, 10, 10, 0.94);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.egg-game-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f5f5f5;
+}
+
+.egg-game-title span { color: #3df2ff; }
+
+.egg-game-overlay canvas {
+  border: 1px solid rgba(245, 245, 245, 0.15);
+  border-radius: 8px;
+  background: #050505;
+  touch-action: none;
+}
+
+.egg-game-hint {
+  color: rgba(245, 245, 245, 0.45);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .egg-game-overlay canvas { width: 90vw; height: auto; }
+}
