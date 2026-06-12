@@ -1462,6 +1462,12 @@ body.nav-open .nav-overlay { display: flex; }
   border-color: var(--nuvo-red);
 }
 
+.nuvo-tag--draft {
+  color: rgba(245, 245, 245, 0.5);
+  border-style: dashed;
+  border-color: rgba(245, 245, 245, 0.3);
+}
+
 .nuvo-title {
   display: flex;
   flex-wrap: wrap;
