@@ -1981,7 +1981,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 /* ── Excelsior! project identity ── */
 .excelsior-page {
-  --excelsior-pink: #ff2d6b;
+  --excelsior-orange: #ff6b2b;
 }
 
 .excelsior-page .pj-hero {
@@ -1997,9 +1997,9 @@ body.nav-open .nav-overlay { display: flex; }
   position: relative;
 }
 .excelsior-page .pj-back:hover { color: #fff; border-color: #fff; }
-.excelsior-page .pj-sec-num { color: var(--excelsior-pink); }
-.excelsior-page .pj-stmt-eyebrow { color: var(--excelsior-pink); }
-.excelsior-page .pj-next-name:hover { color: var(--excelsior-pink); }
+.excelsior-page .pj-sec-num { color: var(--excelsior-orange); }
+.excelsior-page .pj-stmt-eyebrow { color: var(--excelsior-orange); }
+.excelsior-page .pj-next-name:hover { color: var(--excelsior-orange); }
 
 .excelsior-stripes {
   position: absolute;
@@ -2033,8 +2033,8 @@ body.nav-open .nav-overlay { display: flex; }
 
 .excelsior-tag--accent {
   color: #050505;
-  background: var(--excelsior-pink);
-  border-color: var(--excelsior-pink);
+  background: var(--excelsior-orange);
+  border-color: var(--excelsior-orange);
 }
 
 .excelsior-title {
@@ -2047,7 +2047,7 @@ body.nav-open .nav-overlay { display: flex; }
   margin: 0 0 24px;
 }
 
-.excelsior-bang { color: var(--excelsior-pink); }
+.excelsior-bang { color: var(--excelsior-orange); }
 
 .excelsior-desc {
   max-width: 560px;
