@@ -2003,16 +2003,50 @@ body.nav-open .nav-overlay { display: flex; }
 
 .excelsior-stripes {
   position: absolute;
-  inset: -20% -10%;
-  background: repeating-linear-gradient(
-    -8deg,
-    rgba(255, 255, 255, 0.05) 0 2px,
-    transparent 2px 64px
-  );
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(-8deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 64px),
+    radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: auto, 13px 13px;
+  background-position: 0 0, 0 0;
   pointer-events: none;
 }
 
+.excelsior-hero { position: relative; }
 .excelsior-hero .wrap { position: relative; z-index: 1; }
+
+.excelsior-sticker {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.6));
+}
+
+.excelsior-sticker--1 {
+  width: 200px;
+  top: 14%;
+  right: 6%;
+  transform: rotate(-12deg);
+}
+
+.excelsior-sticker--2 {
+  width: 130px;
+  bottom: 8%;
+  right: 26%;
+  transform: rotate(9deg);
+}
+
+.excelsior-sticker--3 {
+  width: 110px;
+  top: 8%;
+  right: 32%;
+  transform: rotate(6deg);
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .excelsior-sticker { display: none; }
+}
 
 .excelsior-tags {
   display: flex;
@@ -2035,9 +2069,12 @@ body.nav-open .nav-overlay { display: flex; }
   color: #050505;
   background: var(--excelsior-orange);
   border-color: var(--excelsior-orange);
+  transform: rotate(-2deg);
 }
 
 .excelsior-title {
+  position: relative;
+  display: inline-block;
   font-size: clamp(64px, 16vw, 200px);
   font-weight: 800;
   font-style: italic;
@@ -2045,6 +2082,8 @@ body.nav-open .nav-overlay { display: flex; }
   line-height: 0.95;
   text-transform: uppercase;
   margin: 0 0 24px;
+  transform: skewX(-4deg);
+  text-shadow: 6px 6px 0 var(--excelsior-orange);
 }
 
 .excelsior-bang { color: var(--excelsior-orange); }
@@ -2055,6 +2094,10 @@ body.nav-open .nav-overlay { display: flex; }
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.75);
   margin: 0;
+}
+
+@media (max-width: 720px) {
+  .excelsior-title { text-shadow: 4px 4px 0 var(--excelsior-orange); }
 }
 
 .excelsior-grid {
