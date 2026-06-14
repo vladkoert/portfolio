@@ -1813,8 +1813,32 @@ body.nav-open .nav-overlay { display: flex; }
 .bball-page .pj-next-name:hover { color: var(--bball-blue); }
 
 .bball-hero {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(160deg, #061a3a 0%, #0d4ea3 55%, #3f8fe0 100%);
 }
+
+.bball-clouds {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bball-clouds path { fill: rgba(255, 255, 255, 0.14); }
+
+.bball-clouds--top {
+  top: 0;
+  height: 140px;
+}
+
+.bball-clouds--bottom {
+  bottom: -1px;
+  height: 160px;
+}
+
+.bball-hero .wrap { position: relative; z-index: 1; }
 
 .bball-tags {
   display: flex;
