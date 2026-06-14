@@ -26,6 +26,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://vladkoert.com/work/excelsior</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://vladkoert.com/work/kaeshy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

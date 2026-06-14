@@ -1979,6 +1979,134 @@ body.nav-open .nav-overlay { display: flex; }
   .bball-hero { padding: 130px 0 48px; }
 }
 
+/* ── Excelsior! project identity ── */
+.excelsior-page {
+  --excelsior-pink: #ff2d6b;
+}
+
+.excelsior-page .pj-hero {
+  background: #050505;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.excelsior-page .pj-back {
+  color: rgba(255, 255, 255, 0.55);
+  border-bottom-color: transparent;
+  position: relative;
+}
+.excelsior-page .pj-back:hover { color: #fff; border-color: #fff; }
+.excelsior-page .pj-sec-num { color: var(--excelsior-pink); }
+.excelsior-page .pj-stmt-eyebrow { color: var(--excelsior-pink); }
+.excelsior-page .pj-next-name:hover { color: var(--excelsior-pink); }
+
+.excelsior-stripes {
+  position: absolute;
+  inset: -20% -10%;
+  background: repeating-linear-gradient(
+    -8deg,
+    rgba(255, 255, 255, 0.05) 0 2px,
+    transparent 2px 64px
+  );
+  pointer-events: none;
+}
+
+.excelsior-hero .wrap { position: relative; z-index: 1; }
+
+.excelsior-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.excelsior-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+}
+
+.excelsior-tag--accent {
+  color: #050505;
+  background: var(--excelsior-pink);
+  border-color: var(--excelsior-pink);
+}
+
+.excelsior-title {
+  font-size: clamp(64px, 16vw, 200px);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+.excelsior-bang { color: var(--excelsior-pink); }
+
+.excelsior-desc {
+  max-width: 560px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.excelsior-grid {
+  display: grid;
+  gap: 32px;
+  padding: 24px 0 64px;
+}
+
+.excelsior-grid--2 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.excelsior-grid--4 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.excelsior-grid--beer { grid-template-columns: 1.6fr 1fr; align-items: start; }
+
+.excelsior-card-img {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.excelsior-card-img img,
+.excelsior-card-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.excelsior-card-img--logo { aspect-ratio: 16 / 9; }
+
+.excelsior-card-img--sticker {
+  aspect-ratio: 2 / 1;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.excelsior-card-img--sticker img { object-fit: contain; }
+
+.excelsior-card-img--video { aspect-ratio: 9 / 16; }
+.excelsior-card-img--qr { aspect-ratio: 900 / 1143; }
+
+.excelsior-card-cap {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+@media (max-width: 720px) {
+  .excelsior-grid { gap: 20px; padding: 16px 0 56px; }
+  .excelsior-grid--beer { grid-template-columns: 1fr; }
+  .excelsior-title { font-size: clamp(48px, 18vw, 100px); }
+}
+
 /* ── Next project nav ────────────────────────────── */
 .pj-next {
   display: block;
