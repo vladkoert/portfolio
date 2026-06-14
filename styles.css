@@ -1813,15 +1813,8 @@ body.nav-open .nav-overlay { display: flex; }
 .bball-page .pj-next-name:hover { color: var(--bball-blue); }
 
 .bball-hero {
-  background:
-    linear-gradient(180deg, rgba(6, 26, 58, 0.55) 0%, rgba(8, 40, 90, 0.35) 45%, rgba(8, 40, 90, 0.65) 100%),
-    url('/images/Design/Bball%20in%20the%20sky/web/bball-cover.jpg') center 65% / cover no-repeat;
-  min-height: 70vh;
-  display: flex;
-  align-items: flex-end;
+  background: linear-gradient(160deg, #061a3a 0%, #0d4ea3 55%, #3f8fe0 100%);
 }
-
-.bball-hero .wrap { padding-bottom: 64px; }
 
 .bball-tags {
   display: flex;
