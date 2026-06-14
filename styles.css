@@ -1871,12 +1871,11 @@ body.nav-open .nav-overlay { display: flex; }
   padding: 24px 0 64px;
 }
 
-.bball-card--wide { grid-column: span 2; }
-
 .bball-card-img {
   overflow: hidden;
   border-radius: 12px;
   border: 1px solid var(--border);
+  aspect-ratio: 4 / 3;
 }
 
 .bball-card-img img,
@@ -1886,6 +1885,8 @@ body.nav-open .nav-overlay { display: flex; }
   object-fit: cover;
   display: block;
 }
+
+.bball-card-img--video { aspect-ratio: 9 / 16; }
 
 .bball-card-cap {
   margin-top: 12px;
