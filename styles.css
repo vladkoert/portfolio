@@ -1798,7 +1798,6 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 .bball-page .pj-hero {
-  background: linear-gradient(180deg, #0a3f86 0%, #1d78dd 55%, #5aaaf0 100%);
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -1813,14 +1812,16 @@ body.nav-open .nav-overlay { display: flex; }
 .bball-page .pj-stmt-eyebrow { color: var(--bball-blue); }
 .bball-page .pj-next-name:hover { color: var(--bball-blue); }
 
-.bball-cloud {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  pointer-events: none;
+.bball-hero {
+  background:
+    linear-gradient(180deg, rgba(6, 26, 58, 0.55) 0%, rgba(8, 40, 90, 0.35) 45%, rgba(8, 40, 90, 0.65) 100%),
+    url('/images/Design/Bball%20in%20the%20sky/web/bball-cover.jpg') center 65% / cover no-repeat;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
 }
-.bball-cloud--1 { width: 60vh; height: 60vh; left: -20%; bottom: -35%; }
-.bball-cloud--2 { width: 36vh; height: 36vh; right: 6%; bottom: -20%; background: rgba(255, 255, 255, 0.08); }
+
+.bball-hero .wrap { padding-bottom: 64px; }
 
 .bball-tags {
   display: flex;
@@ -1869,7 +1870,10 @@ body.nav-open .nav-overlay { display: flex; }
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 32px;
   padding: 24px 0 64px;
+  justify-content: center;
 }
+
+.bball-grid .bball-card { max-width: 360px; width: 100%; margin: 0 auto; }
 
 .bball-card-img {
   overflow: hidden;
@@ -1903,9 +1907,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 @media (max-width: 720px) {
   .bball-grid { grid-template-columns: 1fr; gap: 20px; padding: 16px 0 56px; }
-  .bball-card--wide { grid-column: span 1; }
-  .bball-cloud--1 { width: 80vw; height: 80vw; }
-  .bball-cloud--2 { width: 50vw; height: 50vw; }
+  .bball-hero { min-height: 56vh; }
 }
 
 /* ── Next project nav ────────────────────────────── */
