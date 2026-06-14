@@ -1822,21 +1822,30 @@ body.nav-open .nav-overlay { display: flex; }
   position: absolute;
   inset: 24px;
   border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
   pointer-events: none;
 }
 
-.bball-corner {
+.bball-cloud-corner {
   position: absolute;
-  font-size: 14px;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.6);
+  width: 56px;
   pointer-events: none;
 }
 
-.bball-corner--tl { top: 17px; left: 17px; }
-.bball-corner--tr { top: 17px; right: 17px; }
-.bball-corner--bl { bottom: 17px; left: 17px; }
-.bball-corner--br { bottom: 17px; right: 17px; }
+.bball-cloud-corner svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.bball-cloud-corner--tl { top: 8px; left: 8px; }
+.bball-cloud-corner--tr { top: 8px; right: 8px; transform: scaleX(-1); }
+.bball-cloud-corner--bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
+.bball-cloud-corner--br { bottom: 8px; right: 8px; transform: scale(-1, -1); }
 
 .bball-tags {
   display: flex;
