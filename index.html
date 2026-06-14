@@ -107,14 +107,15 @@
     </section>
 
     <!-- (02) Work -->
-    <section class="sec">
+    <section class="sec work-section" id="selectedWorkSection">
+      <img class="work-hover-img" id="selectedWorkHoverImg" src="" alt="" aria-hidden="true" />
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-label">Selected work</span>
           <span class="sec-num">(02)</span>
         </div>
         <div class="work-list">
-          <a class="work-item" href="/work/excelsior">
+          <a class="work-item" href="/work/excelsior" data-img="/images/Design/Excelsior/web/logo-reworked.png">
             <span class="work-name">Excelsior!</span>
             <div class="work-meta">
               <span class="work-cat">Branding · Logo refresh</span>
@@ -122,7 +123,7 @@
             </div>
             <span class="work-arrow">↗</span>
           </a>
-          <a class="work-item" href="/work/nuvo">
+          <a class="work-item" href="/work/nuvo" data-img="/images/Design/Nuvo/web/nuvo-01.jpg">
             <span class="work-name">Nuvo</span>
             <div class="work-meta">
               <span class="work-cat">Graphic design · Social content</span>
@@ -130,7 +131,7 @@
             </div>
             <span class="work-arrow">↗</span>
           </a>
-          <a class="work-item" href="/work/kaeshy">
+          <a class="work-item" href="/work/kaeshy" data-img="/images/Design/Kaeshy/web/kaeshy-cover.jpg">
             <span class="work-name">Kæshy</span>
             <div class="work-meta">
               <span class="work-cat">Branding · Visual identity</span>
@@ -223,6 +224,46 @@
       });
 
       hero.addEventListener('mouseleave', function () {
+        active = false;
+        img.style.opacity = '0';
+        targetX = 0; targetY = 0;
+      });
+    })();
+
+    // Selected-work cursor image
+    (function () {
+      var section = document.getElementById('selectedWorkSection');
+      var img     = document.getElementById('selectedWorkHoverImg');
+      if (!section || !img) return;
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      var active  = false, raf = null;
+      var targetX = 0, targetY = 0, curX = 0, curY = 0;
+      function animate() {
+        curX = lerp(curX, targetX, 0.08);
+        curY = lerp(curY, targetY, 0.08);
+        img.style.transform = 'translate(calc(-50% + ' + curX + 'px), calc(-50% + ' + curY + 'px))';
+        raf = requestAnimationFrame(animate);
+      }
+      document.querySelectorAll('#selectedWorkSection .work-item[data-img]').forEach(function(item) {
+        item.addEventListener('mouseenter', function() {
+          img.src = item.dataset.img;
+          active = true;
+          img.style.opacity = '1';
+          if (!raf) raf = requestAnimationFrame(animate);
+        });
+        item.addEventListener('mouseleave', function() {
+          active = false;
+          img.style.opacity = '0';
+          targetX = 0; targetY = 0;
+        });
+      });
+      section.addEventListener('mousemove', function(e) {
+        if (!active) return;
+        var r = section.getBoundingClientRect();
+        targetX = (e.clientX - r.left) - r.width  / 2;
+        targetY = (e.clientY - r.top)  - r.height / 2;
+      });
+      section.addEventListener('mouseleave', function() {
         active = false;
         img.style.opacity = '0';
         targetX = 0; targetY = 0;
