@@ -1814,38 +1814,23 @@ body.nav-open .nav-overlay { display: flex; }
 
 .bball-hero {
   position: relative;
-  background: linear-gradient(160deg, #061a3a 0%, #0d4ea3 55%, #3f8fe0 100%);
+  overflow: hidden;
+  background: transparent;
+  padding: 110px 0 100px;
 }
 
-.bball-hero::before {
-  content: '';
+.bball-cloud-shape {
   position: absolute;
-  inset: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 18px;
-  pointer-events: none;
-}
-
-.bball-cloud-corner {
-  position: absolute;
-  width: 56px;
-  pointer-events: none;
-}
-
-.bball-cloud-corner svg {
+  inset: 0;
   width: 100%;
-  height: auto;
-  display: block;
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.45);
-  stroke-width: 2.5;
-  stroke-linejoin: round;
+  height: 100%;
+  z-index: 0;
 }
 
-.bball-cloud-corner--tl { top: 8px; left: 8px; }
-.bball-cloud-corner--tr { top: 8px; right: 8px; transform: scaleX(-1); }
-.bball-cloud-corner--bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
-.bball-cloud-corner--br { bottom: 8px; right: 8px; transform: scale(-1, -1); }
+.bball-hero .wrap {
+  position: relative;
+  z-index: 1;
+}
 
 .bball-tags {
   display: flex;
@@ -1931,7 +1916,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 @media (max-width: 720px) {
   .bball-grid { grid-template-columns: 1fr; gap: 20px; padding: 16px 0 56px; }
-  .bball-hero { min-height: 56vh; }
+  .bball-hero { padding: 70px 0 64px; }
 }
 
 /* ── Next project nav ────────────────────────────── */

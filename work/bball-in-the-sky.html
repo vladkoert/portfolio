@@ -54,18 +54,30 @@
 
     <!-- Hero -->
     <div class="pj-hero bball-hero">
-      <span class="bball-cloud-corner bball-cloud-corner--tl">
-        <svg viewBox="0 0 64 36" aria-hidden="true"><path d="M18 28 C9 28 9 17 18 17 C18 8 34 8 37 17 C48 15 50 28 38 28 Z" /></svg>
-      </span>
-      <span class="bball-cloud-corner bball-cloud-corner--tr">
-        <svg viewBox="0 0 64 36" aria-hidden="true"><path d="M18 28 C9 28 9 17 18 17 C18 8 34 8 37 17 C48 15 50 28 38 28 Z" /></svg>
-      </span>
-      <span class="bball-cloud-corner bball-cloud-corner--bl">
-        <svg viewBox="0 0 64 36" aria-hidden="true"><path d="M18 28 C9 28 9 17 18 17 C18 8 34 8 37 17 C48 15 50 28 38 28 Z" /></svg>
-      </span>
-      <span class="bball-cloud-corner bball-cloud-corner--br">
-        <svg viewBox="0 0 64 36" aria-hidden="true"><path d="M18 28 C9 28 9 17 18 17 C18 8 34 8 37 17 C48 15 50 28 38 28 Z" /></svg>
-      </span>
+      <svg class="bball-cloud-shape" viewBox="0 0 1600 800" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="bballSky" x1="0" y1="0" x2="0.4" y2="1">
+            <stop offset="0%" stop-color="#061a3a" />
+            <stop offset="55%" stop-color="#0d4ea3" />
+            <stop offset="100%" stop-color="#3f8fe0" />
+          </linearGradient>
+        </defs>
+        <path fill="url(#bballSky)" d="M40 300
+          C 0 200, 60 100, 160 130
+          C 220 40, 380 40, 440 130
+          C 520 50, 700 50, 760 140
+          C 840 50, 1020 50, 1080 140
+          C 1160 50, 1340 50, 1400 140
+          C 1480 110, 1560 200, 1560 300
+          L 1560 520
+          C 1600 600, 1540 700, 1440 670
+          C 1380 760, 1220 760, 1160 670
+          C 1080 760, 900 760, 840 670
+          C 760 760, 580 760, 520 670
+          C 440 760, 280 760, 220 670
+          C 120 760, 0 620, 40 520
+          Z" />
+      </svg>
       <div class="wrap">
         <a class="pj-back" href="/work">← All work</a>
 
