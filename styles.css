@@ -1793,6 +1793,120 @@ body.nav-open .nav-overlay { display: flex; }
   .kaeshy-arc { width: 90vw; height: 90vw; right: -30%; }
 }
 
+.bball-page {
+  --bball-blue: #1670d6;
+}
+
+.bball-page .pj-hero {
+  background: linear-gradient(180deg, #0a3f86 0%, #1d78dd 55%, #5aaaf0 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.bball-page .pj-back {
+  color: rgba(255, 255, 255, 0.65);
+  border-bottom-color: transparent;
+}
+.bball-page .pj-back:hover { color: #fff; border-color: #fff; }
+.bball-page .pj-sec-num { color: var(--bball-blue); }
+.bball-page .pj-stmt-eyebrow { color: var(--bball-blue); }
+.bball-page .pj-next-name:hover { color: var(--bball-blue); }
+
+.bball-cloud {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+.bball-cloud--1 { width: 60vh; height: 60vh; left: -20%; bottom: -35%; }
+.bball-cloud--2 { width: 36vh; height: 36vh; right: 6%; bottom: -20%; background: rgba(255, 255, 255, 0.08); }
+
+.bball-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.bball-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+}
+
+.bball-tag--accent {
+  color: var(--bball-blue);
+  background: #fff;
+  border-color: #fff;
+}
+
+.bball-title {
+  position: relative;
+  font-size: clamp(48px, 12vw, 140px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  margin: 0 0 24px;
+}
+
+.bball-desc {
+  position: relative;
+  max-width: 560px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.bball-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+  padding: 24px 0 64px;
+}
+
+.bball-card--wide { grid-column: span 2; }
+
+.bball-card-img {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.bball-card-img img,
+.bball-card-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bball-card-cap {
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.bball-card-cap strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .bball-grid { grid-template-columns: 1fr; gap: 20px; padding: 16px 0 56px; }
+  .bball-card--wide { grid-column: span 1; }
+  .bball-cloud--1 { width: 80vw; height: 80vw; }
+  .bball-cloud--2 { width: 50vw; height: 50vw; }
+}
+
 /* ── Next project nav ────────────────────────────── */
 .pj-next {
   display: block;
