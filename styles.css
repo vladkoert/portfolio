@@ -456,6 +456,66 @@ body.nav-open .nav-overlay { display: flex; }
   text-transform: uppercase;
 }
 
+/* ── 404 ─────────────────────────────────────────── */
+.notfound-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notfound-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 64px 0;
+  text-align: center;
+}
+
+.notfound-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.notfound-num {
+  font-size: clamp(120px, 32vw, 320px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.notfound-text {
+  max-width: 440px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--dim);
+}
+
+.notfound-links {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.notfound-link {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.notfound-link:hover { color: var(--dim); border-color: var(--dim); }
+
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;

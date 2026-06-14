@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found — Vlad Koert</title>
+  <meta name="description" content="This page doesn't exist." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="/">Vlad Koert</a>
+      <nav class="site-nav">
+        <a href="/work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <button class="menu-btn" aria-label="Open menu">≡</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay">
+    <a href="/work">Work</a>
+    <a href="/#about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <section class="notfound-hero">
+      <div class="wrap notfound-wrap">
+        <span class="notfound-eyebrow">Error 404</span>
+        <h1 class="notfound-num" id="notfoundNum">404</h1>
+        <p class="notfound-text">Lost in the clouds. This page doesn't exist — or drifted off somewhere.</p>
+        <div class="notfound-links">
+          <a class="notfound-link" href="/">Back to home →</a>
+          <a class="notfound-link" href="/work">See all work →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-note">© 2026 Vlad Koert</p>
+      <a class="footer-cta" href="/contact">Start a project →</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    var menuBtn = document.querySelector('.menu-btn');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', function() {
+        document.body.classList.toggle('nav-open');
+        menuBtn.textContent = document.body.classList.contains('nav-open') ? '✕' : '≡';
+      });
+      document.querySelectorAll('.nav-overlay a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          document.body.classList.remove('nav-open');
+          menuBtn.textContent = '≡';
+        });
+      });
+    }
+
+    // Ambient glitch on the 404 numeral
+    (function () {
+      var num = document.getElementById('notfoundNum');
+      if (!num) return;
+      var text = num.textContent;
+
+      function flash() {
+        var f = document.createElement('div');
+        f.className = 'egg-rgb';
+        f.innerHTML = '<span></span><span></span>';
+        document.body.appendChild(f);
+        setTimeout(function () { f.remove(); }, 700);
+      }
+
+      function glitch() {
+        num.setAttribute('data-egg-text', text);
+        num.classList.add('egg-glitch');
+        setTimeout(function () {
+          num.classList.remove('egg-glitch');
+          num.removeAttribute('data-egg-text');
+        }, 1200);
+      }
+
+      setTimeout(function () { flash(); glitch(); }, 1000);
+      setInterval(glitch, 5000);
+    })();
+  </script>
+  <script src="/script.js"></script>
+  <script src="/easter.js"></script>
+</body>
+</html>
