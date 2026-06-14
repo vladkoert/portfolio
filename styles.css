@@ -2067,6 +2067,11 @@ body.nav-open .nav-overlay { display: flex; }
 .excelsior-grid--4 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 .excelsior-grid--beer { grid-template-columns: 1.6fr 1fr; align-items: start; }
 
+.excelsior-card--narrow {
+  max-width: 220px;
+  margin: 0 auto;
+}
+
 .excelsior-card-img {
   overflow: hidden;
   border-radius: 12px;
@@ -2094,6 +2099,18 @@ body.nav-open .nav-overlay { display: flex; }
 
 .excelsior-card-img--video { aspect-ratio: 9 / 16; }
 .excelsior-card-img--qr { aspect-ratio: 900 / 1143; }
+.excelsior-card-img--poster { aspect-ratio: 1000 / 1784; }
+.excelsior-card-img--tee { aspect-ratio: 1600 / 1142; }
+
+.excelsior-card-img--halloween-logo {
+  aspect-ratio: 1400 / 781;
+  background: #f3e7da;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.excelsior-card-img--halloween-logo img { object-fit: contain; }
 
 .excelsior-card-cap {
   margin-top: 12px;
