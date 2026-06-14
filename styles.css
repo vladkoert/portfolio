@@ -1816,7 +1816,7 @@ body.nav-open .nav-overlay { display: flex; }
   position: relative;
   overflow: hidden;
   background: transparent;
-  padding: 110px 0 100px;
+  padding: 170px 0 64px;
 }
 
 .bball-cloud-shape {
@@ -1916,7 +1916,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 @media (max-width: 720px) {
   .bball-grid { grid-template-columns: 1fr; gap: 20px; padding: 16px 0 56px; }
-  .bball-hero { padding: 70px 0 64px; }
+  .bball-hero { padding: 130px 0 48px; }
 }
 
 /* ── Next project nav ────────────────────────────── */
