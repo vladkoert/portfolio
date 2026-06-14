@@ -1814,31 +1814,29 @@ body.nav-open .nav-overlay { display: flex; }
 
 .bball-hero {
   position: relative;
-  overflow: hidden;
   background: linear-gradient(160deg, #061a3a 0%, #0d4ea3 55%, #3f8fe0 100%);
 }
 
-.bball-clouds {
+.bball-hero::before {
+  content: '';
   position: absolute;
-  left: 0;
-  width: 100%;
+  inset: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   pointer-events: none;
-  z-index: 0;
 }
 
-.bball-clouds path { fill: rgba(255, 255, 255, 0.14); }
-
-.bball-clouds--top {
-  top: 0;
-  height: 140px;
+.bball-corner {
+  position: absolute;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
 }
 
-.bball-clouds--bottom {
-  bottom: -1px;
-  height: 160px;
-}
-
-.bball-hero .wrap { position: relative; z-index: 1; }
+.bball-corner--tl { top: 17px; left: 17px; }
+.bball-corner--tr { top: 17px; right: 17px; }
+.bball-corner--bl { bottom: 17px; left: 17px; }
+.bball-corner--br { bottom: 17px; right: 17px; }
 
 .bball-tags {
   display: flex;
