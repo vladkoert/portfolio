@@ -12,8 +12,7 @@
   --max:     1200px;
 
   --gutter:    24px;
-  --header-h:  60px;
-  --header-clear: calc(var(--gutter) * 2 + var(--header-h) + 16px);
+  --header-h:  46px;
 
   --r-lg: 32px;
   --r-md: 20px;
@@ -51,50 +50,42 @@ body {
   padding: 0 var(--pad);
 }
 
-/* ── Header — embedded floating pill ─────────────── */
+/* ── Header — small floating pill, dynamic-island style ── */
 .site-header {
   position: fixed;
   top: var(--gutter);
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  width: calc(100% - var(--gutter) * 2);
-  max-width: 760px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--card) 78%, transparent);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
   backdrop-filter: blur(16px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
 .header-inner {
-  padding: 0 8px 0 22px;
+  padding: 0 28px;
   height: var(--header-h);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: center;
 }
 
 .logo {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
+  display: none;
 }
 
 .site-nav {
   display: flex;
-  gap: 28px;
+  gap: 26px;
   align-items: center;
 }
 
 .site-nav a {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   color: var(--dim);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   transition: color 0.2s;
 }
 
@@ -2409,7 +2400,7 @@ body.nav-open .nav-overlay { display: flex; }
 
   .site-nav { display: none; }
   .menu-btn { display: flex; }
-  .header-inner { padding: 0 6px 0 18px; }
+  .header-inner { padding: 0 18px; }
 
   .hero-tagline { font-size: clamp(30px, 9vw, 42px); }
   .hero-foot { flex-direction: column; align-items: flex-start; gap: 12px; }
