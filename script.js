@@ -248,8 +248,8 @@
   // Text/row blocks: fade + rise
   var riseTargets = gsap.utils.toArray(
     ".sec-head, .work-item, .tbl-row, .pj-sec-hd, .pj-meta, .pj-title, " +
-    ".hero-eyebrow, .hero-tagline, .hero-desc, .hero-meta, .statement-text, " +
-    ".cta-link, .notfound-eyebrow, .notfound-text, .notfound-links"
+    ".hero-eyebrow, .hero-tagline, .hero-desc, .hero-meta, .hero-cta, " +
+    ".notfound-eyebrow, .notfound-text, .notfound-links"
   );
   if (riseTargets.length) {
     gsap.set(riseTargets, { opacity: 0, y: 28 });

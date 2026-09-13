@@ -2,9 +2,9 @@
 
 /* ── Variables ──────────────────────────────────── */
 :root {
-  --bg:      #100e0b;
-  --card:    #1b1814;
-  --card-2:  #221e18;
+  --bg:      #000000;
+  --card:    #101010;
+  --card-2:  #181818;
   --text:    #f3efe8;
   --dim:     rgba(243,239,232,0.4);
   --border:  rgba(243,239,232,0.1);
@@ -17,12 +17,6 @@
   --r-lg: 32px;
   --r-md: 20px;
   --r-sm: 14px;
-}
-
-.accent {
-  font-family: "Spectral", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
 }
 
 /* ── Reset ──────────────────────────────────────── */
@@ -52,7 +46,7 @@ body {
 
 /* ── Header — small floating pill, dynamic-island style ── */
 .site-header {
-  position: fixed;
+  position: absolute;
   top: var(--gutter);
   left: 50%;
   transform: translateX(-50%);
@@ -461,48 +455,6 @@ body.nav-open .nav-overlay { display: flex; }
   background: var(--text);
   color: var(--bg);
   border-color: var(--text);
-}
-
-/* ── Homepage CTA ────────────────────────────────── */
-.sec--cta {
-  padding: 64px 0;
-}
-
-.cta-link {
-  display: inline-flex;
-  align-items: center;
-  font-size: clamp(20px, 3.2vw, 36px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--bg);
-  background: var(--text);
-  padding: clamp(16px, 2vw, 24px) clamp(28px, 3.6vw, 40px);
-  border-radius: 999px;
-  transition: transform 0.35s cubic-bezier(.19,1,.22,1);
-}
-
-.cta-link:hover { transform: scale(1.035); }
-.cta-link:active { transform: scale(0.98); }
-
-/* ── Statement ───────────────────────────────────── */
-.statement {
-  padding: 88px 0;
-}
-
-.statement-text {
-  font-size: clamp(32px, 4.5vw, 60px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--text);
-  max-width: 20ch;
-}
-
-.statement-text em {
-  font-family: "Spectral", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--dim);
 }
 
 /* ── Footer ──────────────────────────────────────── */
@@ -2408,9 +2360,6 @@ body.nav-open .nav-overlay { display: flex; }
 
   .tbl-row { grid-template-columns: 1fr; gap: 8px; }
   .tbl-key { color: var(--dim); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
-
-  .statement { padding: 60px 0; }
-  .sec--cta { padding: 48px 0; }
 
   .work-item { grid-template-columns: 1fr auto; }
   .work-meta { display: none; }
