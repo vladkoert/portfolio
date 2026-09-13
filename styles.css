@@ -470,6 +470,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 .see-all {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
@@ -634,6 +635,7 @@ body.nav-open .nav-overlay { display: flex; }
 
 .notfound-link {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
@@ -777,6 +779,7 @@ body.nav-open .nav-overlay { display: flex; }
   top: 16px;
   left: var(--pad);
   z-index: 5;
+  isolation: isolate;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
