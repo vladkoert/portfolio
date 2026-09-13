@@ -47,15 +47,14 @@ body {
 /* ── Header — small floating pill, dynamic-island style ── */
 .site-header {
   position: absolute;
-  top: var(--gutter);
+  top: calc(var(--gutter) + 16px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--card) 82%, transparent);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  background: var(--bg);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 
 .header-inner {
@@ -79,7 +78,7 @@ body {
 .site-nav a {
   font-size: 14px;
   font-weight: 400;
-  color: var(--dim);
+  color: rgba(243,239,232,0.7);
   transition: color 0.2s;
 }
 
