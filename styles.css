@@ -1164,6 +1164,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: var(--wtn-glow);
   border: 1px solid currentColor;
   padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .wtn-title {
@@ -1490,6 +1491,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: var(--lbr-purple);
   border: 1px solid currentColor;
   padding: 6px 14px;
+  border-radius: 999px;
 }
 
 /* Hero — a giant "card" with a dashed border, like the cards themselves */
@@ -1501,7 +1503,7 @@ body.nav-open .nav-overlay { display: flex; }
 }
 
 .lbr-title {
-  font-size: clamp(60px, 14vw, 200px);
+  font-size: clamp(48px, 11vw, 160px);
   font-weight: 800;
   font-style: italic;
   letter-spacing: -0.03em;
@@ -1635,6 +1637,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: rgba(245, 245, 245, 0.85);
   border: 1px solid rgba(245, 245, 245, 0.25);
   padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .nuvo-tag--accent {
@@ -1797,6 +1800,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: rgba(245, 245, 255, 0.85);
   border: 1px solid rgba(245, 245, 255, 0.3);
   padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .hive-tag--accent {
@@ -1894,6 +1898,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: rgba(245, 245, 255, 0.85);
   border: 1px solid rgba(245, 245, 255, 0.3);
   padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .kaeshy-tag--accent {
@@ -2020,6 +2025,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .bball-tag--accent {
@@ -2171,6 +2177,7 @@ body.nav-open .nav-overlay { display: flex; }
   color: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .excelsior-tag--accent {
