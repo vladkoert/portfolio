@@ -56,14 +56,20 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
-      <img class="hero-img" src="/images/Me/vlad.jpg" alt="" aria-hidden="true" />
+      <div class="hero-video-bg" aria-hidden="true">
+        <video class="hero-video is-active" id="heroVideoLeft" src="/videos/hero/me-left.mp4" muted playsinline preload="auto"></video>
+        <video class="hero-video" id="heroVideoRight" src="/videos/hero/me-right.mp4" muted playsinline preload="auto"></video>
+      </div>
       <div class="hero-name-wrap">
         <p class="hero-eyebrow">Digital creative · graphic design · photography</p>
         <h1 class="hero-tagline">Making complex<br>ideas clear,<br>visual, and felt.</h1>
       </div>
       <div class="hero-foot">
         <p class="hero-desc">Digital creative &amp; photographer<br>based in Brussels, Belgium</p>
-        <p class="hero-meta">Est. 2019<br>Available for work</p>
+        <div class="hero-foot-right">
+          <p class="hero-meta">Est. 2019<br>Available for work</p>
+          <a class="hero-cta" href="/contact">Start a project <span>→</span></a>
+        </div>
       </div>
     </section>
 
@@ -72,7 +78,7 @@
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-label">About</span>
-          <span class="sec-num">(01)</span>
+          <span class="sec-num">01</span>
         </div>
         <div class="tbl-row">
           <div class="tbl-key">Abstract</div>
@@ -112,7 +118,7 @@
       <div class="wrap">
         <div class="sec-head">
           <span class="sec-label">Selected work</span>
-          <span class="sec-num">(02)</span>
+          <span class="sec-num">02</span>
         </div>
         <div class="work-list">
           <a class="work-item" href="/work/excelsior" data-img="/images/Design/Excelsior/web/logo-reworked.png">
@@ -183,51 +189,85 @@
       });
     }
 
-    // Hero cursor-follow image
+    // Hero video background — cursor-driven scrub between left/right clips
     (function () {
-      var hero     = document.getElementById('hero');
-      var nameWrap = hero && hero.querySelector('.hero-name-wrap');
-      var img      = hero && hero.querySelector('.hero-img');
-      if (!hero || !img || !nameWrap) return;
+      var hero  = document.getElementById('hero');
+      var left  = document.getElementById('heroVideoLeft');
+      var right = document.getElementById('heroVideoRight');
+      if (!hero || !left || !right) return;
 
-      function lerp(a, b, t) { return a + (b - a) * t; }
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isTouch = window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches;
 
-      var active  = false;
-      var raf     = null;
-      var targetX = 0, targetY = 0;
-      var curX    = 0, curY    = 0;
-
-      function animate() {
-        curX = lerp(curX, targetX, 0.07);
-        curY = lerp(curY, targetY, 0.07);
-        img.style.transform = 'translate(calc(-50% + ' + curX + 'px), calc(-50% + ' + curY + 'px))';
-        raf = requestAnimationFrame(animate);
+      if (isTouch && !reduceMotion) {
+        // Touch: autoplay, alternating left/right on loop
+        var current = left, next = right;
+        function playCurrent() { current.currentTime = 0; current.play().catch(function () {}); }
+        function swap() {
+          current.classList.remove('is-active');
+          var tmp = current; current = next; next = tmp;
+          current.classList.add('is-active');
+          playCurrent();
+        }
+        left.addEventListener('ended', swap);
+        right.addEventListener('ended', swap);
+        playCurrent();
+        return;
       }
 
-      nameWrap.addEventListener('mouseenter', function () {
-        active = true;
-        img.style.opacity = '1';
-        if (!raf) raf = requestAnimationFrame(animate);
-      });
+      if (reduceMotion) return; // static first frame, no motion
 
-      nameWrap.addEventListener('mouseleave', function () {
-        active = false;
-        img.style.opacity = '0';
-        targetX = 0; targetY = 0;
-      });
+      // Desktop: mouse-position scrubbing, no autoplay
+      var activeSide = 'left';
+      var pendingSide = 'left';
+      var switching  = false;
+      var mouseX     = null;
+      var raf        = null;
+      var SWITCH_MS  = 300; // matches the CSS fade duration: outgoing clip fully fades out (dip to black) before the incoming one fades in
 
-      hero.addEventListener('mousemove', function (e) {
-        if (!active) return;
-        var r = hero.getBoundingClientRect();
-        targetX = (e.clientX - r.left)  - r.width  / 2;
-        targetY = (e.clientY - r.top)   - r.height / 2;
-      });
+      function setActive(side) {
+        pendingSide = side;
+        if (side === activeSide || switching) return;
+        switching = true;
+        (activeSide === 'left' ? left : right).classList.remove('is-active');
+        setTimeout(function () {
+          activeSide = pendingSide;
+          (activeSide === 'left' ? left : right).classList.add('is-active');
+          switching = false;
+        }, SWITCH_MS);
+      }
 
-      hero.addEventListener('mouseleave', function () {
-        active = false;
-        img.style.opacity = '0';
-        targetX = 0; targetY = 0;
-      });
+      function scrub(video, progress) {
+        if (!isFinite(video.duration) || video.duration <= 0 || video.seeking) return;
+        video.currentTime = progress * video.duration;
+      }
+
+      function update() {
+        if (mouseX !== null) {
+          var rect     = hero.getBoundingClientRect();
+          var width    = rect.width;
+          var center   = width / 2;
+          var deadZone = Math.max(30, width * 0.05);
+          var x        = mouseX - rect.left;
+
+          if (x < center - deadZone) {
+            setActive('left');
+            var leftRange = center - deadZone;
+            scrub(left, Math.min(1, Math.max(0, (leftRange - x) / leftRange)));
+          } else if (x > center + deadZone) {
+            setActive('right');
+            var rightRange = width - (center + deadZone);
+            scrub(right, Math.min(1, Math.max(0, (x - (center + deadZone)) / rightRange)));
+          } else {
+            scrub(activeSide === 'left' ? left : right, 0);
+          }
+        }
+        raf = requestAnimationFrame(update);
+      }
+      raf = requestAnimationFrame(update);
+
+      hero.addEventListener('mousemove', function (e) { mouseX = e.clientX; });
+      hero.addEventListener('mouseleave', function () { mouseX = null; });
     })();
 
     // Selected-work cursor image
@@ -270,6 +310,8 @@
       });
     })();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="/script.js"></script>
   <script src="/easter.js"></script>
 </body>

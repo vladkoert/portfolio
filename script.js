@@ -215,7 +215,7 @@
     if (started) document.body.classList.add("cursor-ready");
   });
 
-  var hoverSelector = "a, button, .work-item, .pj-arr";
+  var hoverSelector = "a, button, .work-item, .pj-arr, .sec-num, .pj-sec-num";
   var textSelector  = "input, textarea";
 
   document.addEventListener("mouseover", function (e) {
@@ -233,4 +233,45 @@
       document.body.classList.remove("cursor-hover");
     }
   });
+})();
+
+// Scroll reveal — fades/scales content in as it enters the viewport.
+// Runs on every page via GSAP + ScrollTrigger (loaded from CDN); if either
+// failed to load, or the visitor prefers reduced motion, everything just
+// stays at its default, fully visible state — no dependency, no breakage.
+(function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Text/row blocks: fade + rise
+  var riseTargets = gsap.utils.toArray(
+    ".sec-head, .work-item, .tbl-row, .pj-sec-hd, .pj-meta, .pj-title, " +
+    ".hero-eyebrow, .hero-tagline, .hero-desc, .hero-meta, .statement-text, " +
+    ".cta-link, .notfound-eyebrow, .notfound-text, .notfound-links"
+  );
+  if (riseTargets.length) {
+    gsap.set(riseTargets, { opacity: 0, y: 28 });
+    ScrollTrigger.batch(riseTargets, {
+      start: "top 92%",
+      once: true,
+      onEnter: function (batch) {
+        gsap.to(batch, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.06, overwrite: true });
+      },
+    });
+  }
+
+  // Imagery: fade + scale up slightly, echoing a scattered gallery settling into place
+  var scaleTargets = gsap.utils.toArray('img[loading="lazy"], .pj-card video, .notfound-num');
+  if (scaleTargets.length) {
+    gsap.set(scaleTargets, { opacity: 0, scale: 0.94 });
+    ScrollTrigger.batch(scaleTargets, {
+      start: "top 92%",
+      once: true,
+      onEnter: function (batch) {
+        gsap.to(batch, { opacity: 1, scale: 1, duration: 0.9, ease: "power3.out", stagger: 0.05, overwrite: true });
+      },
+    });
+  }
 })();
