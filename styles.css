@@ -491,8 +491,9 @@ body.nav-open .nav-overlay { display: flex; }
 
 /* ── Portfolio page ──────────────────────────────── */
 .portfolio-hero {
+  position: relative;
   margin: var(--gutter);
-  padding: 64px 0;
+  padding: 112px 0 64px;
   border-radius: var(--r-lg);
   background: var(--card);
   border: 1px solid var(--border);
@@ -515,8 +516,9 @@ body.nav-open .nav-overlay { display: flex; }
 
 /* ── Contact page ────────────────────────────────── */
 .contact-hero {
+  position: relative;
   margin: var(--gutter);
-  padding: 64px 0;
+  padding: 112px 0 64px;
   border-radius: var(--r-lg);
   background: var(--card);
   border: 1px solid var(--border);
@@ -696,13 +698,17 @@ body.nav-open .nav-overlay { display: flex; }
 .pj-hero {
   position: relative;
   margin: var(--gutter);
-  padding: 64px 0;
+  padding: 112px 0 64px;
   border-radius: var(--r-lg);
   background: var(--card);
   overflow: hidden;
 }
 
 .pj-back {
+  position: absolute;
+  top: 16px;
+  left: var(--pad);
+  z-index: 5;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -711,7 +717,6 @@ body.nav-open .nav-overlay { display: flex; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text);
-  margin-bottom: 52px;
   padding: 9px 18px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -2380,8 +2385,9 @@ body.nav-open .nav-overlay { display: flex; }
   .work-item { grid-template-columns: 1fr auto; }
   .work-meta { display: none; }
 
-  .pj-hero { padding: 40px 0; }
-  .pj-back { margin-bottom: 32px; }
+  .pj-hero,
+  .portfolio-hero,
+  .contact-hero { padding: 88px 0 40px; }
   .pj-title { margin-bottom: 36px; }
   .pj-sec-hd { padding: 40px 0 24px; }
   .pj-gallery { margin-bottom: 48px; }
