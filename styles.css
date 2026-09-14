@@ -199,7 +199,7 @@ body.nav-open .nav-overlay { display: flex; }
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.45s ease;
 }
 
 .hero-video.is-active { opacity: 1; }

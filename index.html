@@ -205,22 +205,14 @@
 
       // Desktop: mouse-position scrubbing, no autoplay
       var activeSide = 'left';
-      var pendingSide = 'left';
-      var switching  = false;
       var mouseX     = null;
       var raf        = null;
-      var SWITCH_MS  = 300; // matches the CSS fade duration: outgoing clip fully fades out (dip to black) before the incoming one fades in
 
       function setActive(side) {
-        pendingSide = side;
-        if (side === activeSide || switching) return;
-        switching = true;
-        (activeSide === 'left' ? left : right).classList.remove('is-active');
-        setTimeout(function () {
-          activeSide = pendingSide;
-          (activeSide === 'left' ? left : right).classList.add('is-active');
-          switching = false;
-        }, SWITCH_MS);
+        if (side === activeSide) return;
+        activeSide = side;
+        left.classList.toggle('is-active', side === 'left');
+        right.classList.toggle('is-active', side === 'right');
       }
 
       function scrub(video, progress) {
