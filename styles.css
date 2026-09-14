@@ -39,6 +39,9 @@
 
   --i-arrow-r: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
   --i-arrow-l: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5'/%3E%3Cpath d='m12 19-7-7 7-7'/%3E%3C/svg%3E");
+  --i-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+  --i-spark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8'/%3E%3C/svg%3E");
+  --i-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='7' rx='1.5'/%3E%3Crect x='14' y='3' width='7' height='7' rx='1.5'/%3E%3Crect x='3' y='14' width='7' height='7' rx='1.5'/%3E%3Crect x='14' y='14' width='7' height='7' rx='1.5'/%3E%3C/svg%3E");
 }
 
 /* ── Arrow icon (lucide "arrow-right"), used everywhere a → / ← / ↗ used to be a text glyph ── */
@@ -390,6 +393,173 @@ body {
   border-color: var(--text);
 }
 
+/* ── About bento grid ─────────────────────────────── */
+.about-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "experience based status"
+    "abstract abstract skills";
+  gap: 16px;
+  padding: 28px 0 8px;
+}
+
+.bt {
+  position: relative;
+  padding: 28px;
+  border-radius: var(--r-md);
+  background: var(--glass-card-bg);
+  backdrop-filter: var(--glass-card-blur);
+  -webkit-backdrop-filter: var(--glass-card-blur);
+  border: 1px solid var(--glass-card-border);
+  box-shadow: var(--glass-card-shadow);
+}
+
+.bt-experience { grid-area: experience; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; gap: 20px; }
+.bt-based      { grid-area: based; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; gap: 10px; }
+.bt-status     { grid-area: status; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; gap: 10px; }
+.bt-abstract   { grid-area: abstract; display: flex; flex-direction: column; gap: 10px; }
+.bt-skills     { grid-area: skills; display: flex; flex-direction: column; gap: 16px; }
+
+/* Circular icon badge, consistent across every tile */
+.bt-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--glass-card-border);
+  border-radius: 999px;
+  flex: none;
+}
+.bt-icon::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-color: rgba(255,255,255,0.85);
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+.bt-icon--pin::before   { -webkit-mask-image: var(--i-pin);   mask-image: var(--i-pin); }
+.bt-icon--spark::before { -webkit-mask-image: var(--i-spark); mask-image: var(--i-spark); }
+.bt-icon--grid::before  { -webkit-mask-image: var(--i-grid);  mask-image: var(--i-grid); }
+
+.bt-status .bt-pulse {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-card-border);
+  border-radius: 999px;
+}
+
+.bt-ring {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bt-ring::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: rgba(255,255,255,0.7);
+  border-right-color: rgba(255,255,255,0.7);
+  transform: rotate(-45deg);
+}
+.bt-ring span {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.bt-pulse {
+  position: relative;
+  background: rgba(120,255,180,0.08);
+}
+.bt-pulse::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6dffb0;
+  box-shadow: 0 0 0 0 rgba(109,255,176,0.6);
+  animation: bt-pulse-anim 2s ease-out infinite;
+}
+@keyframes bt-pulse-anim {
+  0%   { box-shadow: 0 0 0 0 rgba(109,255,176,0.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(109,255,176,0); }
+  100% { box-shadow: 0 0 0 0 rgba(109,255,176,0); }
+}
+
+.bt-heading {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.bt-caption {
+  font-size: 13px;
+  color: var(--dim);
+  line-height: 1.6;
+}
+
+.bt-abstract p {
+  font-size: 14px;
+  color: var(--dim);
+  line-height: 1.7;
+}
+
+.bt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bt-chips span {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-card-border);
+}
+
+@media (max-width: 900px) {
+  .about-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "experience based"
+      "status status"
+      "abstract abstract"
+      "skills skills";
+  }
+}
+
+@media (max-width: 640px) {
+  .about-bento {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "experience"
+      "based"
+      "status"
+      "abstract"
+      "skills";
+  }
+  .bt { padding: 24px; }
+}
+
 /* ── Work list ───────────────────────────────────── */
 .work-list { width: 100%; }
 
@@ -476,14 +646,94 @@ body {
 
 /* ── Footer ──────────────────────────────────────── */
 .site-footer {
-  padding: 28px 0;
-  margin: 0 var(--gutter);
+  position: relative;
+  margin: 0 var(--gutter) var(--gutter);
+  padding: 48px var(--pad) 32px;
+  border-radius: var(--r-lg);
+  background: var(--glass-card-bg);
+  backdrop-filter: var(--glass-card-blur);
+  -webkit-backdrop-filter: var(--glass-card-blur);
+  border: 1px solid var(--glass-card-border);
+  box-shadow: var(--glass-card-shadow);
+  overflow: hidden;
 }
 
-.footer-inner {
+.footer-glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  width: 50%;
+  height: 180px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(255,255,255,0.16), transparent 72%);
+  pointer-events: none;
+}
+
+.footer-grid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--glass-card-border);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 280px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.footer-tag {
+  font-size: 13px;
+  color: var(--dim);
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 56px;
+}
+
+.footer-col h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 14px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: #fff; }
+
+.footer-inner,
+.footer-bottom {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .footer-note {
@@ -2463,7 +2713,10 @@ body {
   .contact-layout { grid-template-columns: 1fr; gap: 48px; }
   .portfolio-hero h1, .contact-hero h1 { font-size: clamp(56px, 18vw, 100px); }
 
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .footer-inner,
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .footer-grid { flex-direction: column; gap: 32px; }
+  .footer-links { gap: 40px; }
 }
 
 /* ── Easter egg: Konami code chromatic-aberration flash ── */

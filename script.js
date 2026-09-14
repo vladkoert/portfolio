@@ -253,7 +253,7 @@
   }
 
   // Imagery: fade + scale up slightly, echoing a scattered gallery settling into place
-  var scaleTargets = gsap.utils.toArray('img[loading="lazy"], .pj-card video, .notfound-num');
+  var scaleTargets = gsap.utils.toArray('img[loading="lazy"], .pj-card video, .notfound-num, .bt');
   if (scaleTargets.length) {
     gsap.set(scaleTargets, { opacity: 0, scale: 0.94 });
     ScrollTrigger.batch(scaleTargets, {
@@ -261,6 +261,19 @@
       once: true,
       onEnter: function (batch) {
         gsap.to(batch, { opacity: 1, scale: 1, duration: 0.9, ease: "power3.out", stagger: 0.05, overwrite: true });
+      },
+    });
+  }
+
+  // Footer columns: fade + rise + blur-in, once, as the footer comes into view
+  var footerTargets = gsap.utils.toArray(".footer-brand, .footer-col");
+  if (footerTargets.length) {
+    gsap.set(footerTargets, { opacity: 0, y: -8, filter: "blur(4px)" });
+    ScrollTrigger.batch(footerTargets, {
+      start: "top 95%",
+      once: true,
+      onEnter: function (batch) {
+        gsap.to(batch, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "power2.out", stagger: 0.1, overwrite: true });
       },
     });
   }
