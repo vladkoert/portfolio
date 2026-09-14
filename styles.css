@@ -118,52 +118,6 @@ body {
 .site-nav a:hover,
 .site-nav a.active { color: var(--text); }
 
-.menu-btn {
-  display: none;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--text);
-  font-size: 18px;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-
-.menu-btn:hover {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-/* Mobile nav overlay */
-.nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  z-index: 99;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px var(--pad);
-  gap: 8px;
-}
-
-.nav-overlay a {
-  font-size: clamp(28px, 6vw, 44px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--dim);
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  transition: color 0.2s;
-}
-
-.nav-overlay a:hover { color: var(--text); }
-
-body.nav-open .nav-overlay { display: flex; }
-
 /* ── Hero — floating rounded card, video shows through ── */
 .hero {
   min-height: calc(100vh - var(--gutter) * 2);
@@ -1542,7 +1496,7 @@ body.nav-open .nav-overlay { display: flex; }
   margin: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 640px) {
   .prt-hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -2459,9 +2413,8 @@ body.nav-open .nav-overlay { display: flex; }
 @media (max-width: 720px) {
   :root { --pad: 20px; --gutter: 12px; --r-lg: 22px; }
 
-  .site-nav { display: none; }
-  .menu-btn { display: flex; }
-  .header-inner { padding: 0 18px; }
+  .site-nav { gap: 18px; }
+  .header-inner { padding: 0 20px; }
 
   .hero-tagline { font-size: clamp(30px, 9vw, 42px); }
   .hero-foot { flex-direction: column; align-items: flex-start; gap: 12px; }

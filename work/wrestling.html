@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
   <title>Wrestling — Vlad Koert</title>
   <meta name="description" content="A photography series shot ringside at a professional wrestling event — fast action, dramatic light and raw energy." />
   <meta name="robots" content="index, follow" />
@@ -41,15 +42,8 @@
         <a href="/#about">About</a>
         <a href="/contact">Contact</a>
       </nav>
-      <button class="menu-btn" aria-label="Open menu">≡</button>
     </div>
   </header>
-
-  <nav class="nav-overlay">
-    <a href="/work">Work</a>
-    <a href="/#about">About</a>
-    <a href="/contact">Contact</a>
-  </nav>
 
   <main>
 
@@ -152,21 +146,6 @@
   </footer>
 
   <script>
-    // Mobile nav
-    var menuBtn = document.querySelector('.menu-btn');
-    if (menuBtn) {
-      menuBtn.addEventListener('click', function() {
-        document.body.classList.toggle('nav-open');
-        menuBtn.textContent = document.body.classList.contains('nav-open') ? '✕' : '≡';
-      });
-      document.querySelectorAll('.nav-overlay a').forEach(function(a) {
-        a.addEventListener('click', function() {
-          document.body.classList.remove('nav-open');
-          menuBtn.textContent = '≡';
-        });
-      });
-    }
-
     // Carousel
     (function () {
       var track = document.getElementById('pjTrack');

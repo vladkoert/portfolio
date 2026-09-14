@@ -28,16 +28,6 @@
 
   syncToggle();
 
-  // Mobile nav
-  var menuBtn = document.querySelector(".menu-btn");
-  var nav = document.querySelector(".nav");
-  if (menuBtn && nav) {
-    menuBtn.addEventListener("click", function () { nav.classList.toggle("is-open"); });
-    nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () { nav.classList.remove("is-open"); });
-    });
-  }
-
   // Generic carousel init — works for both .pf-carousel and .project-carousel
   function initCarousel(container, slideClass, dotClass, prevClass, nextClass, autoMs) {
     if (!container) return;
